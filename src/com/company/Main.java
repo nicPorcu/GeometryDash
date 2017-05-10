@@ -3,6 +3,6 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code heredqt6dt6
+        // write your code heredqt6dt6
     }
 }
