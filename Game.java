@@ -10,16 +10,15 @@ import java.awt.event.KeyListener;
 
 public class Game extends JComponent implements ActionListener, KeyListener
 {
-    private int direction = 10;
-    private boolean d = true;
     private int playerX = 100;
-    private int playerY = 300;
-    private int platformY = 300;
+    private double playerY = 300;
+    private double platformY = 300;
     private boolean move = false;
     private int backX = 0;
     private int backY = 0;
     private int backX1 = 1000;
     private int backY1 = 0;
+    private double playerSpd = 6;
 
 
     public static void main(String[] args)
@@ -57,7 +56,7 @@ public class Game extends JComponent implements ActionListener, KeyListener
 
 
         g.setColor(Color.BLACK);
-        g.fillRect(playerX,playerY, 25, 25);
+        g.fillRect(playerX, (int) playerY, 25, 25);
 
 
 
@@ -78,16 +77,14 @@ public class Game extends JComponent implements ActionListener, KeyListener
         backX -=5;
         backX1-=5;
 
-        if(move){
-            if(playerY != platformY - 63){
-                playerY -= 3;
-            }
-            else{
+        if(move) {
+            if (playerSpd >= -6) {
+                playerY -= playerSpd;
+                playerSpd -= 0.25;
+            } else {
+                playerY = platformY;
                 move = false;
             }
-        }
-        if(!move && playerY != platformY){
-            playerY += 3;
         }
         repaint();
 
@@ -95,6 +92,7 @@ public class Game extends JComponent implements ActionListener, KeyListener
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == 32){
             if(playerY == platformY){
+                playerSpd = 6;
                 move = true;
             }
         }
@@ -104,4 +102,3 @@ public class Game extends JComponent implements ActionListener, KeyListener
     }
     public void keyTyped(KeyEvent e){}
 }
-
