@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import javax.imageio.*;
+import java.io.IOException;
+import java.io.*;
 
 
 
@@ -28,7 +31,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
 {
     private int width ,height;
-
+    private Image img;
 
     Background background;
 
@@ -47,13 +50,17 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         Timer time = new Timer(10, game1);
         time.start();
 
+
     }
     public GameRunner(){
-        width=800;
+        width=900;
         height=600;
         background= new Background(width, height);
         addKeyListener(this);
-
+        try {
+            img = ImageIO.read(new File("Sprite1.png"));
+        }
+        catch (IOException e1) {}
         setFocusable(true);
 
     }
@@ -80,16 +87,16 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
 
         g.setColor(Color.RED);
-        g.fillRect(background.getBox().getX(),height-background.getBox().getY(),50,50);
+        g.drawImage(img, background.getBox().getX(), height-background.getBox().getY(), null);
 
 
-        g.setColor(Color.GREEN);
+        g.setColor(Color.BLACK);
         g.fillRect(0,height- background.getGroundHeight(), 80000, background.getGroundHeight());
         ArrayList<Spike> spikes=  background.getSpikes();
         g.setColor(Color.BLACK);
         for(Spike s: spikes)
         {
-            g.fillRect(s.getX(),height -50- s.getY(), 50,50);
+            g.fillPolygon(s.getX(), s.getY(), 3);
         }
     }
 
@@ -100,10 +107,12 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     public void actionPerformed(ActionEvent e)
 
     {
-        background.shiftLeft();
-        background.getBox().move();
-
-        repaint();
+        if (!background.getBox().isDead(background.getSpikeX(), background.getSpikeY()))
+        {
+            background.shiftLeft();
+            background.getBox().move();
+            repaint();
+        }
 
     }
     public void keyPressed(KeyEvent e){

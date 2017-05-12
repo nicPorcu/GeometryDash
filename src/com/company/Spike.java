@@ -16,25 +16,33 @@ package com.company;
 
 public class Spike {
 
-    private int x;
-    private int y;
-    public Spike(int x, int y){
-        this.x = x;
-        this.y = y;
+    private int[] x;
+    private int[] y;
+    private int height;
+    public Spike(int leftX, int leftY){
+        this.x = new int[3];
+        this.y = new int[3];
+        x[0] = leftX;
+        x[1] = (leftX+ 20);
+        x[2] = (leftX + 40);
+        y[0] = leftY;
+        y[1] = leftY - 34;
+        y[2] = leftY;
     }
 
 
 
-    public void shiftLeft()
+    public void shiftLeft(int speed)
     {
-        x--;
+        for(int i = 0; i < 3; i++)
+        x[i]-= speed;
     }
-    public int getX()
+    public int[] getX()
     {
         return x;
     }
 
-    public int getY()
+    public int[] getY()
     {
         return y;
     }

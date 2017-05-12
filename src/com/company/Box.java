@@ -11,12 +11,12 @@ package com.company;
 
 
 public class Box {
-    private static final int hop = 15;
+    private static final double hop = 8.5;
     private int yPos;
-    private static final int xPos=30;
+    private static final int xPos=100;
     private String name;
-    private int velocity;
-    private static final int GRAVITY = 1;
+    private double velocity;
+    private static final double GRAVITY = 0.33;
     //private int score;
     private int groundH;
 
@@ -41,6 +41,14 @@ public class Box {
             velocity=0;
             yPos=groundH+50;
         }
+    }
+    public boolean isDead(int[] spikeX, int[] spikeY){
+        for(int i = 0; i < spikeX.length; i ++){
+            if(600-yPos >= spikeY[i] - 34&& xPos < spikeX[i] && xPos + 50 > spikeX[i]){
+                return true;
+            }
+        }
+        return false;
     }
     public int getX()
     {
