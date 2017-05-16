@@ -42,12 +42,14 @@ public class Box {
             yPos=groundH+50;
         }
     }
-    public boolean isDead(int[] spikeX, int[] spikeY){
-        for(int i = 0; i < spikeX.length; i ++){
-            if(600-yPos >= spikeY[i] - 34&& xPos < spikeX[i] && xPos + 50 > spikeX[i]){
+    public boolean isDead(Spike s){
+            if(600-yPos >= s.getY()[1] - (groundH + 32) && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
                 return true;
             }
-        }
+            if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 600-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 80  - s.getX()[0]))){
+                return true;
+            }
+
         return false;
     }
     public int getX()

@@ -107,8 +107,10 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     public void actionPerformed(ActionEvent e)
 
     {
-        if (!background.getBox().isDead(background.getSpikeX(), background.getSpikeY()))
+
+        if (!background.getBox().isDead(background.getNextSpike()))
         {
+            background.passedSpike();
             background.shiftLeft();
             background.getBox().move();
             repaint();

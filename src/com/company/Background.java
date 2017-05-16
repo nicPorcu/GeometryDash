@@ -17,6 +17,7 @@ public class Background {
     private int width;
     private int height;
     private int backgroundSpd;
+    private int spikesPassed;
 
     public Background (int width, int height)
     {
@@ -29,15 +30,20 @@ public class Background {
         numSpikes=50;
         backgroundSpd = 3;
         int lastLoc=500;
+        spikesPassed = 0;
         spikes=new ArrayList<Spike>();
         for (int  i=0; i<numSpikes; i++)
 
         {
             spikes.add(new Spike(lastLoc, height - ground));
-            lastLoc+=100;
+            lastLoc+=200;
         }
     }
-
+    public void passedSpike(){
+        if(b.getX() > spikes.get(spikesPassed).getX()[1]){
+            spikesPassed += 1;
+        }
+    }
     public void shiftLeft()
     {
         for (int i= 0; i< spikes.size(); i++)
@@ -54,19 +60,9 @@ public class Background {
             background2X=width;
         }
     }
-    public int[] getSpikeX(){
-        int[] spikeX = new int[numSpikes];
-        for(int i = 0; i < spikeX.length; i++){
-            spikeX[i] = spikes.get(i).getX()[1];
-        }
-        return spikeX;
-    }
-    public int[] getSpikeY(){
-        int[] spikeY = new int[numSpikes];
-        for(int i = 0; i < spikeY.length; i++){
-            spikeY[i] = spikes.get(i).getY()[1];
-        }
-        return spikeY;
+
+    public Spike getNextSpike(){
+            return spikes.get(spikesPassed);
     }
 
     public ArrayList<Spike> getSpikes()
