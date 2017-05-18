@@ -17,12 +17,6 @@ import java.io.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.Graphics2D;
-
-
-
-
-
-
 /**
 
  * Created by apcsaper5 on 5/8/17
@@ -38,6 +32,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     private Image background2;
     private Image ground1;
     private Image ground2;
+    private Image jumpRing;
     private int angle = 360;
     private int angleThreshold = 180;
     private Graphics g;
@@ -73,6 +68,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
             background2 = ImageIO.read(new File("background2.png"));
             ground1 = ImageIO.read(new File("ground1.png"));
             ground2 = ImageIO.read(new File("ground1.png"));
+            jumpRing = ImageIO.read(new File("jump1.png"));
 
         }
         catch (IOException e1) {}
@@ -85,7 +81,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     public Dimension getPreferredSize()
 
     {
-        return new Dimension(800, 600);
+        return new Dimension(1000, 600);
     }
 
 
@@ -102,6 +98,8 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
         g.drawImage(ground1, background.getGroundX(), 600 - background.getGroundHeight(), null);
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
+
+        g.drawImage(jumpRing, background.getJumpRing1X(), 400, null);
 
         //g.drawImage(sprite, background.getBox().getX(), height-background.getBox().getY(), null);
 

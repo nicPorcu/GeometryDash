@@ -21,9 +21,13 @@ public class Background {
     private int groundX;
     private int ground2X;
     private int groundSpd;
+    private JumpRing jumpRing1;
+    private int jumpRing1X;
 
     public Background (int width, int height)
     {
+        jumpRing1 = new JumpRing(500);
+        jumpRing1X = jumpRing1.getX();
         this.width=width;
         this.height=height;
         backgroundX=0;
@@ -67,6 +71,7 @@ public class Background {
         }
         groundX -= groundSpd;
         ground2X -= groundSpd;
+        jumpRing1X-= groundSpd;
         if(groundX <= -1*width){
             groundX = width;
         }
@@ -101,4 +106,5 @@ public class Background {
     }
     public int getGroundX(){return groundX;}
     public int getGround2X(){return ground2X;}
+    public int getJumpRing1X() {return jumpRing1X;}
 }
