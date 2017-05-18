@@ -18,6 +18,9 @@ public class Background {
     private int height;
     private int backgroundSpd;
     private int spikesPassed;
+    private int groundX;
+    private int ground2X;
+    private int groundSpd;
 
     public Background (int width, int height)
     {
@@ -25,10 +28,13 @@ public class Background {
         this.height=height;
         backgroundX=0;
         background2X=width;
-        ground = 20;
+        ground = 100;
         b = new Box("Bread", ground);
         numSpikes=50;
-        backgroundSpd = 3;
+        backgroundSpd = 1;
+        groundSpd= 3;
+        groundX = 0;
+        ground2X = 2000;
         int lastLoc=500;
         spikesPassed = 0;
         spikes=new ArrayList<Spike>();
@@ -48,7 +54,7 @@ public class Background {
     {
         for (int i= 0; i< spikes.size(); i++)
         {
-            spikes.get(i).shiftLeft(backgroundSpd);
+            spikes.get(i).shiftLeft(groundSpd);
         }
         backgroundX-= backgroundSpd;
         background2X-= backgroundSpd;
@@ -58,6 +64,14 @@ public class Background {
         if(background2X<=-1*width)
         {
             background2X=width;
+        }
+        groundX -= groundSpd;
+        ground2X -= groundSpd;
+        if(groundX <= -1*width){
+            groundX = width;
+        }
+        if(ground2X <= -1*width){
+            ground2X = width;
         }
     }
 
@@ -85,4 +99,6 @@ public class Background {
     {
         return background2X;
     }
+    public int getGroundX(){return groundX;}
+    public int getGround2X(){return ground2X;}
 }

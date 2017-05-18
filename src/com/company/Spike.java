@@ -18,7 +18,6 @@ public class Spike {
 
     private int[] x;
     private int[] y;
-    private int height;
     public Spike(int leftX, int leftY){
         this.x = new int[3];
         this.y = new int[3];

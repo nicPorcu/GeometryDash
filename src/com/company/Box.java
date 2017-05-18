@@ -43,7 +43,7 @@ public class Box {
         }
     }
     public boolean isDead(Spike s){
-            if(600-yPos >= s.getY()[1] - (groundH + 32) && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
+            if(600-yPos >= s.getY()[1] - 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
                 return true;
             }
             if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 600-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 80  - s.getX()[0]))){
@@ -67,10 +67,4 @@ public class Box {
             return true;
         return false;
     }
-
-    public void hitsGround(){
-        velocity = 0;
-    }
-
-
 }
