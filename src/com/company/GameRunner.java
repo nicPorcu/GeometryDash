@@ -39,7 +39,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     Background background;
 
 
-
+//The main. You sorta need it
     public static void main(String[] args)
     {
 
@@ -55,6 +55,8 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
 
     }
+    //in the constructor, all instances are assigned, including the images. A background object is created.
+    //The background object basically keeps track of most of the game. GameRunner is mostly responsible for drawing things
     public GameRunner(){
         width= 2000;
         height=600;
@@ -75,7 +77,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     }
 
 
-
+    //idk what this is and why this is here wtf
     public Dimension getPreferredSize()
 
     {
@@ -83,7 +85,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     }
 
 
-
+    //Here's where we have fun drawing things. Everything in here is redrawn each time repaint is called in ActionPerformed
     @Override
 
     protected void paintComponent(Graphics g)
@@ -111,7 +113,8 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     }
 
 
-
+    //This action repeats itself on a timer, every 10 milliseconds. As you can see, most actions are
+    //calling methods created within the background or box classes.
     @Override
 
     public void actionPerformed(ActionEvent e)
@@ -135,6 +138,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         }
 
     }
+    //This rotates the image and then redraws it. Nobody knows how or why this works. Just roll with it, ok?
     public void rotateImage() {
 
         AffineTransform at = AffineTransform.getTranslateInstance(background.getBox().getX() ,600 - background.getBox().getY());
@@ -143,7 +147,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         g2d.drawImage(sprite, at, null);
 
     }
-
+    //Whenever a key is pressed, ActionListener calls this method. If the key code is 32, the space bar, it will cause something to happen.
     public void keyPressed(KeyEvent e){
 
         if(e.getKeyCode() == 32) {
@@ -162,6 +166,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         }
 
     }
+    //Because this class extends ActionListener, these methods needed to be implemented. They do nothing tho.
     public void keyReleased(KeyEvent e){}
     public void keyTyped(KeyEvent e){}
 

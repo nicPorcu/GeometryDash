@@ -24,9 +24,11 @@ public class Background {
     private int groundSpd;
     private ArrayList<JumpRing> rings;
     private int numRings;
+    //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
+    //a spike and a ring that could not be passed at the very end of the list.
     private Spike untouchableSpike = new Spike(0, 2000);
     private JumpRing untouchableRing = new JumpRing (0, 2000);
-
+    //constructor where all the instance variables are initialized:
     public Background (int width, int height)
     {
         this.width=width;
@@ -34,7 +36,7 @@ public class Background {
         backgroundX=0;
         background2X=width;
         ground = 100;
-        b = new Box("Bread", ground);
+        b = new Box(ground);
         numSpikes=50;
         numRings = 1;
         backgroundSpd = 1;
@@ -56,6 +58,8 @@ public class Background {
         }
 
     }
+    //This method updates the number of spikes passed. Necessary for the method that finds the next spike.
+    //This is necessary to prevent the program from checking every single spike to see if it is touching the player.
     public void passedSpike(){
         if(b.getX() > spikes.get(spikesPassed).getX()[1]){
             if(spikesPassed < numSpikes - 1){
@@ -63,6 +67,7 @@ public class Background {
             }
         }
     }
+    //Similar method as the above, but for JumpRings instead.
     public void passedRing(){
         if(b.getX() > rings.get(ringsPassed).getRingX()){
             if(ringsPassed < numRings - 1){
@@ -70,6 +75,8 @@ public class Background {
             }
         }
     }
+    //This method is called in the ActionPerformed of the GameRunner class. It moves every object
+    //in the screen by the proper amount.
     public void shiftLeft()
     {
         for (int i= 0; i< numSpikes; i++)
@@ -98,35 +105,41 @@ public class Background {
             ground2X = width;
         }
     }
-
+    //This method returns the closest spike to the right (first unpassed spike).
+    //Prevents the program from needing to compare the position of the player to the position of every spike
     public Spike getNextSpike(){
         if(spikesPassed < numSpikes){
             return spikes.get(spikesPassed);
         }
         return untouchableSpike;
     }
-
+    //This allows the arraylist of spikes to be accessed in other classes, specifically GameRunner
     public ArrayList<Spike> getSpikes()
     {
         return spikes;
     }
+    //Similar purpose to getNextSpike, but for JumpRings
     public JumpRing getNextRing(){
         if(ringsPassed < numRings) {
             return rings.get(ringsPassed);
         }
         return untouchableRing;
     }
+    //Similar purpose to getSpikes, but for JumpRings
     public ArrayList<JumpRing> getRings(){
         return rings;
     }
+    //This allows the GameRunner class to know the height of the ground. Kinda useful if you want things drawn properly.
     public int getGroundHeight()
     {
         return ground;
     }
+    //This allows the GameRunner class to attain information about the player
     public Box getBox()
     {
         return b;
     }
+    //I think you know what these are.
     public int getBackgroundX()
     {
         return backgroundX;

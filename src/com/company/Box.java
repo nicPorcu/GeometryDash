@@ -15,24 +15,25 @@ public class Box {
     private static final double ringHop = 15;
     private int yPos;
     private static final int xPos=100;
-    private String name;
     private double velocity;
     private static final double GRAVITY = 0.33;
     private int angle = 360;
     private int angleThreshold = 180;
     //private int score;
     private int groundH;
-
-    public Box(String n, int groundH){
+    //This constructor gives the appropriate height to the player
+    public Box(int groundH){
         this.groundH=groundH;
         yPos= groundH+50;
         velocity = 0;
     }
+    //You jump
     public void jump(){
         if(this.onGround()) {
             velocity = hop;
         }
     }
+    //This simulates gravity. If the player is above the ground, it will fall at an increasing rate
     public void move()
     {
         yPos+=velocity;
@@ -45,6 +46,9 @@ public class Box {
             yPos=groundH+50;
         }
     }
+    //This method is called by the ActionPerformed inside the GameRunner
+    //It tests if the player is in contact with the nearest ring to the right.
+    //If ths player is in contact, it will have a sudden boost to its vertical velocity, causing it to jump
     public void touchRing(JumpRing r){
         if(600 - yPos >= r.getRingY() && 600 - yPos <= r.getRingY() + 40 && (xPos < r.getRingX() && xPos + 50 > r.getRingX() || xPos < r.getRingX() + 40 && xPos + 50 > r.getRingX() + 40)){
             velocity = ringHop;
@@ -58,6 +62,8 @@ public class Box {
             }
         }
     }
+    //Is used by the ActionPerformed inside the GameRunner
+    //Sees if the player has touched the nearest spike to the right
     public boolean isDead(Spike s){
             if(600-yPos >= s.getY()[1] - 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
                 return true;
@@ -68,6 +74,7 @@ public class Box {
 
         return false;
     }
+    //if you don't know what these do go learn stuff
     public int getX()
     {
         return xPos;

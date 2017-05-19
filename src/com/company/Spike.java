@@ -14,10 +14,11 @@ package com.company;
 
  */
 
-public class Spike {
+public class Spike {//kills you. No touchy
 
     private int[] x;
     private int[] y;
+    //as a polygon, an array of points must be specified as the vertices. Trying to make close to equilateral in shape
     public Spike(int leftX, int leftY){
         this.x = new int[3];
         this.y = new int[3];
