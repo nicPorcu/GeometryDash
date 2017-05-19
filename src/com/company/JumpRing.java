@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class JumpRing {
+public class JumpRing { //laucnhes the player into the air
     private int x;
 
     public JumpRing(int x)
