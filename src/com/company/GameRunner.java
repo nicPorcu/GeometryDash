@@ -33,8 +33,6 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     private Image ground1;
     private Image ground2;
     private Image jumpRing;
-    private int angle = 360;
-    private int angleThreshold = 180;
     private Graphics g;
 
 
@@ -92,22 +90,22 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
     {
         this.g = g;
-        //draws the first background rectangle
+        //draws the background rectangles
         g.drawImage(background1, background.getBackgroundX(), 0, null);
         g.drawImage(background2, background.getBackground2X(), 0, null);
-
+        //draws the ground
         g.drawImage(ground1, background.getGroundX(), 600 - background.getGroundHeight(), null);
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
-
-        g.drawImage(jumpRing, background.getJumpRing1X(), 400, null);
-
-        //g.drawImage(sprite, background.getBox().getX(), height-background.getBox().getY(), null);
 
         ArrayList<Spike> spikes=  background.getSpikes();
         g.setColor(Color.BLACK);
         for(Spike s: spikes)
         {
             g.fillPolygon(s.getX(), s.getY(), 3);
+        }
+        ArrayList<JumpRing> rings = background.getRings();
+        for(JumpRing r : rings){
+            g.drawImage(jumpRing, r.getRingX(), r.getRingY(), null);
         }
         rotateImage();
     }
@@ -123,11 +121,13 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         if (!background.getBox().isDead(background.getNextSpike()))
         {
             background.passedSpike();
+            background.passedRing();
             background.shiftLeft();
             background.getBox().move();
-            if (!background.getBox().onGround() && angle<angleThreshold) {
+            background.getBox().touchRing(background.getNextRing());
+            if (!background.getBox().onGround() && background.getBox().getAngle()< background.getBox().getAngleThreshold()) {
                 {
-                    angle += 5;
+                    background.getBox().setAngle(background.getBox().getAngle() + 5);
                 }
             }
 
@@ -138,7 +138,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     public void rotateImage() {
 
         AffineTransform at = AffineTransform.getTranslateInstance(background.getBox().getX() ,600 - background.getBox().getY());
-        at.rotate(Math.toRadians(angle), 25 , 25);
+        at.rotate(Math.toRadians(background.getBox().getAngle()), 25 , 25);
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(sprite, at, null);
 
@@ -148,13 +148,13 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
         if(e.getKeyCode() == 32) {
             if (background.getBox().onGround()) {
-                if (angle <= 180)//upside down
+                if (background.getBox().getAngle() <= 180)//upside down
                 {
-                    angleThreshold = 360;
-                    angle = 180;
+                    background.getBox().setAngleThreshold(360);
+                    background.getBox().setAngle(180);
                 } else {
-                    angleThreshold = 180;
-                    angle = 0;
+                    background.getBox().setAngleThreshold(180);
+                    background.getBox().setAngle(0);
                 }
                 background.getBox().jump();
             }
@@ -162,11 +162,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         }
 
     }
-    public void keyReleased(KeyEvent e){
-
-
-
-    }
+    public void keyReleased(KeyEvent e){}
     public void keyTyped(KeyEvent e){}
 
 
