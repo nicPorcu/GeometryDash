@@ -50,7 +50,7 @@ public class Box {
     //It tests if the player is in contact with the nearest ring to the right.
     //If ths player is in contact, it will have a sudden boost to its vertical velocity, causing it to jump
     public void touchRing(JumpRing r){
-        if(600 - yPos >= r.getRingY() && 600 - yPos <= r.getRingY() + 50 && (xPos < r.getRingX() && xPos + 50 > r.getRingX() || xPos < r.getRingX() + 50 && xPos + 50 > r.getRingX() + 40)){
+        if(600 - yPos >= r.getRingY() && 600 - yPos <= r.getRingY() + 30 && (xPos < r.getRingX() && xPos + 50 > r.getRingX() || xPos < r.getRingX() + 30 && xPos + 50 > r.getRingX() + 30)){
             velocity = ringHop;
             if (angle <= 180)//upside down
             {

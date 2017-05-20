@@ -51,12 +51,12 @@ public class Background {
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
-            lastLoc+= 200;
+            lastLoc+= getNextSpikeLoc();
         }
         rings = new ArrayList<JumpRing>();
         for(int i = 0; i<numRings; i ++){
             rings.add(new JumpRing(lastRingLoc, 400));
-            lastRingLoc += 500;
+            lastRingLoc += 200;
         }
 
     }
@@ -76,6 +76,11 @@ public class Background {
                 ringsPassed += 1;
             }
         }
+    }
+
+    public int getNextSpikeLoc()
+    {
+        return 200;
     }
     //This method is called in the ActionPerformed of the GameRunner class. It moves every object
     //in the screen by the proper amount.
