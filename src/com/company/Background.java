@@ -38,23 +38,25 @@ public class Background {
         ground = 100;
         b = new Box(ground);
         numSpikes=50;
-        numRings = 1;
+        numRings = 3;
         backgroundSpd = 1;
         groundSpd= 3;
         groundX = 0;
         ground2X = 2000;
         int lastLoc=500;
+        int lastRingLoc = 500;
         spikesPassed = 0;
         ringsPassed = 0;
         spikes=new ArrayList<Spike>();
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
-            lastLoc+=200;
+            lastLoc+= 200;
         }
         rings = new ArrayList<JumpRing>();
         for(int i = 0; i<numRings; i ++){
-            rings.add(new JumpRing(500, 400));
+            rings.add(new JumpRing(lastRingLoc, 400));
+            lastRingLoc += 500;
         }
 
     }
