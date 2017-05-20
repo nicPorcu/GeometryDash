@@ -33,6 +33,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     private Image ground1;
     private Image ground2;
     private Image jumpRing;
+    private Image pillar;
     private Graphics g;
 
 
@@ -69,6 +70,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
             ground1 = ImageIO.read(new File("ground1.png"));
             ground2 = ImageIO.read(new File("ground1.png"));
             jumpRing = ImageIO.read(new File("jump1.png"));
+            pillar = ImageIO.read(new File("block.png"));
 
         }
         catch (IOException e1) {}
@@ -109,7 +111,13 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         for(JumpRing r : rings){
             g.drawImage(jumpRing, r.getRingX(), r.getRingY(), null);
         }
+        ArrayList<Pillar> pillars = background.getPillars();
+        for(Pillar p : pillars){
+            g.drawImage(pillar, p.getX(), p.getY(), null);
+        }
         rotateImage();
+
+
     }
 
 

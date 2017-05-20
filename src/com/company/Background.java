@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Background {
     private int ground;
+    private int ground1;
     private Box b;
     private ArrayList<Spike> spikes;
     private int numSpikes;
@@ -23,6 +24,8 @@ public class Background {
     private int ground2X;
     private int groundSpd;
     private ArrayList<JumpRing> rings;
+    private ArrayList<Pillar> pillars;
+    private int numPillars;
     private int numRings;
     private int spikeThreshold;
     private int spikeCounter;
@@ -39,6 +42,7 @@ public class Background {
         backgroundX=0;
         background2X=width;
         ground = 100;
+        ground1 = 400;
         b = new Box(ground);
         numSpikes=50;
         numRings =2;
@@ -48,10 +52,12 @@ public class Background {
         ground2X = 2000;
         int lastLoc=500;
         int lastRingLoc = 500;
+        int pillarLoc = 650;
         spikesPassed = 0;
         ringsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
+        numPillars = 5;
         spikes=new ArrayList<Spike>();
         for (int  i=0; i<numSpikes; i++)
         {
@@ -62,6 +68,11 @@ public class Background {
         for(int i = 0; i<numRings; i ++){
             rings.add(new JumpRing(lastRingLoc, 400));
             lastRingLoc += 800;
+        }
+        pillars = new ArrayList<Pillar>();
+        for(int i = 0; i<numPillars; i ++){
+            pillars.add(new Pillar(pillarLoc, height - ground1));
+            pillarLoc+=40;
         }
 
     }
@@ -110,6 +121,10 @@ public class Background {
         {
             rings.get(i).shiftLeft(groundSpd);
         }
+        for (int i= 0; i< numPillars; i++)
+        {
+            pillars.get(i).shiftLeft(groundSpd);
+        }
         backgroundX-= backgroundSpd;
         background2X-= backgroundSpd;
         if(backgroundX<=-1*width){
@@ -142,6 +157,8 @@ public class Background {
         return spikes;
     }
     //Similar purpose to getNextSpike, but for JumpRings
+
+    public ArrayList<Pillar> getPillars() {return pillars;}
     public JumpRing getNextRing(){
         if(ringsPassed < numRings) {
             return rings.get(ringsPassed);

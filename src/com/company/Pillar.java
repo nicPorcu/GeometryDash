@@ -45,5 +45,9 @@ public class Pillar {
     {
         return width;
     }
+
+    public void shiftLeft(int spd){
+        x -= spd;
+    }
 }
 
