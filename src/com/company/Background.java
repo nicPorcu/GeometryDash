@@ -24,6 +24,9 @@ public class Background {
     private int groundSpd;
     private ArrayList<JumpRing> rings;
     private int numRings;
+    private int spikeThreshold;
+    private int spikeCounter;
+
     //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
     //a spike and a ring that could not be passed at the very end of the list.
     private Spike untouchableSpike = new Spike(0, 2000);
@@ -38,7 +41,7 @@ public class Background {
         ground = 100;
         b = new Box(ground);
         numSpikes=50;
-        numRings = 3;
+        numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
         groundX = 0;
@@ -47,6 +50,8 @@ public class Background {
         int lastRingLoc = 500;
         spikesPassed = 0;
         ringsPassed = 0;
+        spikeThreshold = 2;
+        spikeCounter=1;
         spikes=new ArrayList<Spike>();
         for (int  i=0; i<numSpikes; i++)
         {
@@ -56,7 +61,7 @@ public class Background {
         rings = new ArrayList<JumpRing>();
         for(int i = 0; i<numRings; i ++){
             rings.add(new JumpRing(lastRingLoc, 400));
-            lastRingLoc += 200;
+            lastRingLoc += 800;
         }
 
     }
@@ -80,7 +85,18 @@ public class Background {
 
     public int getNextSpikeLoc()
     {
-        return 200;
+        int x = (int) (Math.random() * 150) + 150;
+        int randomChance = (int)(Math.random() * 3 + 1);
+        if (spikeCounter >= spikeThreshold)
+        {
+            spikeCounter = 1;
+        }
+        else if (spikeCounter < spikeThreshold && randomChance == 1)
+        {
+            spikeCounter++;
+            return 40; //triangle width, this makes it right next to it
+        }
+        return x;
     }
     //This method is called in the ActionPerformed of the GameRunner class. It moves every object
     //in the screen by the proper amount.
