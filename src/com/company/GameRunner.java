@@ -103,7 +103,9 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         g.drawImage(ground1, background.getGroundX(), 600 - background.getGroundHeight(), null);
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
         g.drawImage(portal, background.getPortalX(), background.getPortalY(), null);
-
+        g.setColor(Color.white);
+        g.setFont(new Font("Impact", 1, 80));
+        g.drawString( background.getNumAttempts(), background.attemptStringPosition(), height/2);
         ArrayList<Spike> spikes=  background.getSpikes();
         g.setColor(Color.BLACK);
         for(Spike s: spikes)

@@ -40,7 +40,9 @@ public class Background {
     private int numRings;
     private int spikeThreshold;
     private int spikeCounter;
-    private int score;
+    private int numAttempts;
+    private int attemptStringXPos;
+    private int attemptStringInitialXPos;
 
     //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
     //a spike and a ring that could not be passed at the very end of the list.
@@ -94,6 +96,9 @@ public class Background {
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(2);
+        numAttempts=1;
+        attemptStringXPos=100;
+        attemptStringInitialXPos=attemptStringXPos;
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
@@ -186,6 +191,7 @@ public class Background {
         if(ground2X <= -1*width){
             ground2X = width;
         }
+        attemptStringXPos-=backgroundSpd;
     }
     //This method returns the closest spike to the right (first unpassed spike).
     //Prevents the program from needing to compare the position of the player to the position of every spike
@@ -243,6 +249,8 @@ public class Background {
     public int getPortalY() {return portalY;}
     public void reset()
     {
+        numAttempts++;
+        attemptStringXPos=attemptStringInitialXPos;
         groundX=initialGroundX;
         ground2X=initialGround2X;
         backgroundX=initialBackgroundX;
@@ -264,6 +272,15 @@ public class Background {
         }
 
 
+
+    }
+    public String getNumAttempts()
+    {
+        return "Attempt "+ numAttempts;
+    }
+    public int attemptStringPosition()
+    {
+        return attemptStringXPos;
     }
 
 }
