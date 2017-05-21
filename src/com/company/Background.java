@@ -44,6 +44,8 @@ public class Background {
     private int attemptStringXPos;
     private int attemptStringInitialXPos;
 
+    private int bestScore;
+
     //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
     //a spike and a ring that could not be passed at the very end of the list.
     private Spike untouchableSpike = new Spike(0, 2000);
@@ -114,6 +116,7 @@ public class Background {
             pillars.add(new Pillar(pillarLocX.get(i), pillarLocY.get(i), pillarWidth.get(i), pillarHeight.get(i)));
         }
 
+        bestScore=0;
     }
     //This method updates the number of spikes passed. Necessary for the method that finds the next spike.
     //This is necessary to prevent the program from checking every single spike to see if it is touching the player.
@@ -250,6 +253,7 @@ public class Background {
     public void reset()
     {
         numAttempts++;
+
         attemptStringXPos=attemptStringInitialXPos;
         groundX=initialGroundX;
         ground2X=initialGround2X;
