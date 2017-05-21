@@ -74,6 +74,10 @@ public class Box {
 
         return false;
     }
+    //Sets a new temporary ground height for pillars and things;
+    public void setGround(int g){
+        groundH = g;
+    }
     //if you don't know what these do go learn stuff
     public int getX()
     {

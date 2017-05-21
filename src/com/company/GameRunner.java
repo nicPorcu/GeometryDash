@@ -114,8 +114,11 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         ArrayList<Pillar> pillars = background.getPillars();
         for(Pillar p : pillars){
             for(int i = 0; i < p.getWidth(); i ++){
-                int newX = p.getX() + i*40;
-                g.drawImage(pillar, newX, p.getY(), null);
+                for(int j = 0; j< p.getHeight(); j++){
+                    int newX = p.getX() + i*40;
+                    int newY = p.getY() + j*40;
+                    g.drawImage(pillar, newX, newY, null);
+                }
             }
         }
         rotateImage();

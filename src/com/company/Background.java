@@ -71,7 +71,7 @@ public class Background {
         }
         pillars = new ArrayList<Pillar>();
         for(int i = 0; i<numPillars; i ++){
-            pillars.add(new Pillar(pillarLoc, height - ground1, 5));
+            pillars.add(new Pillar(pillarLoc, height - ground1, 5, 1));
             pillarLoc+=40;
         }
 
