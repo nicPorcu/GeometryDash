@@ -10,11 +10,15 @@ import java.util.ArrayList;
 public class Background {
     private int ground;
     private int ground1;
+    private final int initialGroundX;
+    private final int initialGround2X;
     private Box b;
     private ArrayList<Spike> spikes;
     private int numSpikes;
     private int backgroundX;
     private int background2X;
+    private final int initialBackgroundX;
+    private final int initialBackground2X;
     private int width;
     private int height;
     private int backgroundSpd;
@@ -36,6 +40,7 @@ public class Background {
     private int numRings;
     private int spikeThreshold;
     private int spikeCounter;
+    private int score;
 
     //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
     //a spike and a ring that could not be passed at the very end of the list.
@@ -49,6 +54,8 @@ public class Background {
         this.height=height;
         backgroundX=0;
         background2X=width;
+        initialBackgroundX=backgroundX;
+        initialBackground2X=background2X;
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
@@ -58,6 +65,8 @@ public class Background {
         groundSpd= 3;
         groundX = 0;
         ground2X = 2000;
+        initialGroundX=groundX;
+        initialGround2X=ground2X;
         int lastLoc=500;
         int lastRingLoc = 500;
         spikesPassed = 0;
@@ -232,4 +241,29 @@ public class Background {
     public int getGround2X(){return ground2X;}
     public int getPortalX() {return portalX;}
     public int getPortalY() {return portalY;}
+    public void reset()
+    {
+        groundX=initialGroundX;
+        ground2X=initialGround2X;
+        backgroundX=initialBackgroundX;
+        background2X=initialBackground2X;
+        spikesPassed=0;
+        ringsPassed=0;
+        pillarsPassed=0;
+        for (Spike s: spikes)
+        {
+            s.reset();
+        }
+        for (JumpRing r: rings)
+        {
+            r.reset();
+        }
+        for(Pillar p: pillars)
+        {
+            p.reset();
+        }
+
+
+    }
+
 }

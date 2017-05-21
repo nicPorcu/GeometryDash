@@ -14,10 +14,14 @@ public class Pillar {
     private int y;
     private int width;
     private int height;
+    private int initialX;
+    private int initialY;
 
     public Pillar (int x, int y, int w, int h){
         this.x = x;
+        initialX=x;
         this.y = y;
+        initialY=y;
         width = w;
         height = h;
     }
@@ -41,6 +45,12 @@ public class Pillar {
 
     public void shiftLeft(int spd){
         x -= spd;
+    }
+
+    public void reset()
+    {
+        x=initialX;
+        y= initialY;
     }
 }
 

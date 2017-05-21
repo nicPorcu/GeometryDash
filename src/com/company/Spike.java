@@ -17,7 +17,9 @@ package com.company;
 public class Spike {//kills you. No touchy
 
     private int[] x;
+    private int[] initialX;
     private int[] y;
+    private int[] initialY;
     //as a polygon, an array of points must be specified as the vertices. Trying to make close to equilateral in shape
     public Spike(int leftX, int leftY){
         this.x = new int[3];
@@ -28,6 +30,13 @@ public class Spike {//kills you. No touchy
         y[0] = leftY;
         y[1] = leftY - 34;
         y[2] = leftY;
+        initialX=new int[x.length];
+        initialY= new int[y.length];
+        for(int i= 0; i< x.length; i++)
+        {
+            initialX[i]= x[i];
+            initialY[i]=y[i];
+        }
     }
 
 
@@ -45,6 +54,15 @@ public class Spike {//kills you. No touchy
     public int[] getY()
     {
         return y;
+    }
+
+    public void reset()
+    {
+        for(int i= 0; i< x.length; i++)
+        {
+            x[i]=initialX[i];
+            y[i]=initialY[i];
+        }
     }
 
 }

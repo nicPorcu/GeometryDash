@@ -153,8 +153,13 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
                 }
             }
 
-            repaint();
+
         }
+        else{
+
+            background.reset();
+        }
+        repaint();
 
     }
     //This rotates the image and then redraws it. Nobody knows how or why this works. Just roll with it, ok?
