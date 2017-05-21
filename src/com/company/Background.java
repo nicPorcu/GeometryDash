@@ -26,6 +26,10 @@ public class Background {
     private int groundSpd;
     private ArrayList<JumpRing> rings;
     private ArrayList<Pillar> pillars;
+    private ArrayList<Integer> pillarLocX;
+    private ArrayList<Integer> pillarLocY;
+    private ArrayList<Integer> pillarWidth;
+    private ArrayList<Integer> pillarHeight;
     private int numPillars;
     private int numRings;
     private int spikeThreshold;
@@ -46,7 +50,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=10;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -54,14 +58,29 @@ public class Background {
         ground2X = 2000;
         int lastLoc=500;
         int lastRingLoc = 500;
-        int pillarLoc = 650;
         spikesPassed = 0;
         ringsPassed = 0;
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 1;
+        numPillars = 3;
         spikes=new ArrayList<Spike>();
+        pillarLocX = new ArrayList<Integer>();
+        pillarLocY = new ArrayList<Integer>();
+        pillarWidth = new ArrayList<Integer>();
+        pillarHeight = new ArrayList<Integer>();
+        pillarLocX.add(650);
+        pillarLocX.add(1000);
+        pillarLocX.add(1400);
+        pillarLocY.add(height - ground1);
+        pillarLocY.add(height - ground1);
+        pillarLocY.add(ground1 + 20);
+        pillarWidth.add(5);
+        pillarWidth.add(5);
+        pillarWidth.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(2);
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
@@ -74,8 +93,7 @@ public class Background {
         }
         pillars = new ArrayList<Pillar>();
         for(int i = 0; i<numPillars; i ++){
-            pillars.add(new Pillar(pillarLoc, height - ground1, 5, 1));
-            pillarLoc+=40;
+            pillars.add(new Pillar(pillarLocX.get(i), pillarLocY.get(i), pillarWidth.get(i), pillarHeight.get(i)));
         }
 
     }
