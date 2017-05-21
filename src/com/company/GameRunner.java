@@ -17,6 +17,7 @@ import java.io.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.Graphics2D;
+import java.awt.GraphicsEnvironment;
 /**
 
  * Created by apcsaper5 on 5/8/17
@@ -63,6 +64,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         width= 2000;
         height=600;
         background= new Background(width, height);
+
         addKeyListener(this);
         try {
             sprite = ImageIO.read(new File("Sprite1.png"));
@@ -77,6 +79,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         }
         catch (IOException e1) {}
         setFocusable(true);
+
 
     }
 
@@ -104,8 +107,8 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
         g.drawImage(portal, background.getPortalX(), background.getPortalY(), null);
         g.setColor(Color.white);
-        g.setFont(new Font("Impact", 1, 80));
-        g.drawString( background.getNumAttempts(), background.attemptStringPosition(), height/2);
+        g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 36));
+        g.drawString( background.getNumAttempts(), background.attemptStringPosition(), height/2 + 75);
         ArrayList<Spike> spikes=  background.getSpikes();
         g.setColor(Color.BLACK);
         for(Spike s: spikes)

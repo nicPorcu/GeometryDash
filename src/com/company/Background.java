@@ -28,6 +28,7 @@ public class Background {
     private int groundX;
     private int ground2X;
     private int portalX;
+    private int initialPortalX;
     private int portalY;
     private int groundSpd;
     private ArrayList<JumpRing> rings;
@@ -80,6 +81,7 @@ public class Background {
         spikeCounter=1;
         numPillars = 3;
         portalX = 2400;
+        initialPortalX = 2400;
         portalY = 300;
         spikes=new ArrayList<Spike>();
         pillarLocX = new ArrayList<Integer>();
@@ -253,12 +255,12 @@ public class Background {
     public void reset()
     {
         numAttempts++;
-
         attemptStringXPos=attemptStringInitialXPos;
         groundX=initialGroundX;
         ground2X=initialGround2X;
         backgroundX=initialBackgroundX;
         background2X=initialBackground2X;
+        portalX = initialPortalX;
         spikesPassed=0;
         ringsPassed=0;
         pillarsPassed=0;
