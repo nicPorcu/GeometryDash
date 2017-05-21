@@ -23,6 +23,8 @@ public class Background {
     private int pillarsPassed;
     private int groundX;
     private int ground2X;
+    private int portalX;
+    private int portalY;
     private int groundSpd;
     private ArrayList<JumpRing> rings;
     private ArrayList<Pillar> pillars;
@@ -64,6 +66,8 @@ public class Background {
         spikeThreshold = 2;
         spikeCounter=1;
         numPillars = 3;
+        portalX = 2400;
+        portalY = 300;
         spikes=new ArrayList<Spike>();
         pillarLocX = new ArrayList<Integer>();
         pillarLocY = new ArrayList<Integer>();
@@ -166,6 +170,7 @@ public class Background {
         }
         groundX -= groundSpd;
         ground2X -= groundSpd;
+        portalX -= groundSpd;
         if(groundX <= -1*width){
             groundX = width;
         }
@@ -225,4 +230,6 @@ public class Background {
     }
     public int getGroundX(){return groundX;}
     public int getGround2X(){return ground2X;}
+    public int getPortalX() {return portalX;}
+    public int getPortalY() {return portalY;}
 }

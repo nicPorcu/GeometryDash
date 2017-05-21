@@ -34,6 +34,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     private Image ground2;
     private Image jumpRing;
     private Image pillar;
+    private Image portal;
     private Graphics g;
 
 
@@ -71,6 +72,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
             ground2 = ImageIO.read(new File("ground1.png"));
             jumpRing = ImageIO.read(new File("jump1.png"));
             pillar = ImageIO.read(new File("block.png"));
+            portal = ImageIO.read(new File("portal.png"));
 
         }
         catch (IOException e1) {}
@@ -100,6 +102,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         //draws the ground
         g.drawImage(ground1, background.getGroundX(), 600 - background.getGroundHeight(), null);
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
+        g.drawImage(portal, background.getPortalX(), background.getPortalY(), null);
 
         ArrayList<Spike> spikes=  background.getSpikes();
         g.setColor(Color.BLACK);
