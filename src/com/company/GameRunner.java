@@ -139,9 +139,11 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         {
             background.passedSpike();
             background.passedRing();
+            background.passedPillar();
             background.shiftLeft();
             background.getBox().move();
             background.getBox().touchRing(background.getNextRing());
+            background.getBox().touchPillar(background.getNextPillar());
             if (!background.getBox().onGround() && background.getBox().getAngle()< background.getBox().getAngleThreshold()) {
                 {
                     background.getBox().setAngle(background.getBox().getAngle() + 5);

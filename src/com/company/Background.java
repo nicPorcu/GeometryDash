@@ -20,6 +20,7 @@ public class Background {
     private int backgroundSpd;
     private int spikesPassed;
     private int ringsPassed;
+    private int pillarsPassed;
     private int groundX;
     private int ground2X;
     private int groundSpd;
@@ -34,6 +35,7 @@ public class Background {
     //a spike and a ring that could not be passed at the very end of the list.
     private Spike untouchableSpike = new Spike(0, 2000);
     private JumpRing untouchableRing = new JumpRing (0, 2000);
+    private Pillar untouchablePillar = new Pillar( 0, 0, 0, 0);
     //constructor where all the instance variables are initialized:
     public Background (int width, int height)
     {
@@ -55,6 +57,7 @@ public class Background {
         int pillarLoc = 650;
         spikesPassed = 0;
         ringsPassed = 0;
+        pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
         numPillars = 1;
@@ -82,6 +85,15 @@ public class Background {
         if(b.getX() > spikes.get(spikesPassed).getX()[1]){
             if(spikesPassed < numSpikes - 1){
                 spikesPassed += 1;
+            }
+        }
+    }
+    public void passedPillar(){
+        if(b.getX() > (pillars.get(pillarsPassed).getX() + 40*pillars.get(pillarsPassed).getWidth())){
+            if(pillarsPassed < numPillars - 1){
+
+                pillarsPassed += 1;
+
             }
         }
     }
@@ -156,9 +168,14 @@ public class Background {
     {
         return spikes;
     }
-    //Similar purpose to getNextSpike, but for JumpRings
-
+    public Pillar getNextPillar(){
+        if(pillarsPassed < numPillars){
+            return pillars.get(pillarsPassed);
+        }
+        return untouchablePillar;
+    }
     public ArrayList<Pillar> getPillars() {return pillars;}
+    //Similar purpose to getNextSpike, but for JumpRings
     public JumpRing getNextRing(){
         if(ringsPassed < numRings) {
             return rings.get(ringsPassed);

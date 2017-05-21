@@ -20,9 +20,11 @@ public class Box {
     private int angle = 360;
     private int angleThreshold = 180;
     //private int score;
+    private int permGround;
     private int groundH;
     //This constructor gives the appropriate height to the player
     public Box(int groundH){
+        permGround = groundH;
         this.groundH=groundH;
         yPos= groundH+50;
         velocity = 0;
@@ -60,6 +62,14 @@ public class Box {
                 angleThreshold = 180;
                 angle = 0;
             }
+        }
+    }
+    public void touchPillar(Pillar p){
+        if((600 - yPos <= p.getY()) && (xPos + 50 >= p.getX())&& (xPos + 50 >= p.getX()) && (xPos <= p.getX() + 40*p.getWidth())){
+            groundH = 600 - p.getY();
+        }
+        else{
+            groundH = permGround;
         }
     }
     //Is used by the ActionPerformed inside the GameRunner
