@@ -57,7 +57,7 @@ public class Background {
         ringsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 5;
+        numPillars = 1;
         spikes=new ArrayList<Spike>();
         for (int  i=0; i<numSpikes; i++)
         {
@@ -71,7 +71,7 @@ public class Background {
         }
         pillars = new ArrayList<Pillar>();
         for(int i = 0; i<numPillars; i ++){
-            pillars.add(new Pillar(pillarLoc, height - ground1));
+            pillars.add(new Pillar(pillarLoc, height - ground1, 5));
             pillarLoc+=40;
         }
 
