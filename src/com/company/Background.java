@@ -254,28 +254,26 @@ public class Background {
     public int getPortalY() {return portalY;}
     public void reset()
     {
-        numAttempts++;
-        attemptStringXPos=attemptStringInitialXPos;
-        groundX=initialGroundX;
-        ground2X=initialGround2X;
-        backgroundX=initialBackgroundX;
-        background2X=initialBackground2X;
-        portalX = initialPortalX;
-        spikesPassed=0;
-        ringsPassed=0;
-        pillarsPassed=0;
-        for (Spike s: spikes)
-        {
-            s.reset();
-        }
-        for (JumpRing r: rings)
-        {
-            r.reset();
-        }
-        for(Pillar p: pillars)
-        {
-            p.reset();
-        }
+            numAttempts++;
+            attemptStringXPos = attemptStringInitialXPos;
+            groundX = initialGroundX;
+            ground2X = initialGround2X;
+            backgroundX = initialBackgroundX;
+            background2X = initialBackground2X;
+            portalX = initialPortalX;
+            spikesPassed = 0;
+            ringsPassed = 0;
+            pillarsPassed = 0;
+            for (Spike s : spikes) {
+                s.reset();
+            }
+            for (JumpRing r : rings) {
+                r.reset();
+            }
+            for (Pillar p : pillars) {
+                p.reset();
+            }
+
 
 
 

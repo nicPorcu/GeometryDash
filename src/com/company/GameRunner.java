@@ -75,9 +75,11 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
             jumpRing = ImageIO.read(new File("jump1.png"));
             pillar = ImageIO.read(new File("block.png"));
             portal = ImageIO.read(new File("portal.png"));
+            InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("PUSAB___.otf");
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(48f);
 
         }
-        catch (IOException e1) {}
+        catch (IOException|FontFormatException e1) {}
         setFocusable(true);
 
 
