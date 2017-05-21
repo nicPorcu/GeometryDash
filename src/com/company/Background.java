@@ -47,7 +47,6 @@ public class Background {
     private int attemptStringXPos;
     private int attemptStringInitialXPos;
     private double score;
-    private double scoreChange;
     private double bestScore;
     private double levelLength;
 
@@ -70,7 +69,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=10;
+        numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -133,9 +132,9 @@ public class Background {
         }
 
 
-        levelLength=1000;
+        levelLength=2500;
         score=0;
-        scoreChange=levelLength/groundSpd;
+
         bestScore=0;
 
     }
@@ -195,7 +194,7 @@ public class Background {
     //in the screen by the proper amount.
     public void shiftLeft()
     {
-        score+=scoreChange;
+        score+=groundSpd;
         for (int i= 0; i< numSpikes; i++)
         {
             spikes.get(i).shiftLeft(groundSpd);
@@ -325,10 +324,10 @@ public class Background {
     }
     public String newBestScore()
     {
-        if(score>bestScore)
+        if(score>=bestScore&&b.isDead(spikes.get(spikesPassed), pillars.get(pillarsPassed)))
         {
             bestScore=score;
-            String s="New Best Score: \n" + score;
+            String s="New Best Score: \n" + (int)(score/levelLength*100)+"%";
             return s;
         }
         else
