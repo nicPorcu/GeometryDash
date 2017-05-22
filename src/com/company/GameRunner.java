@@ -155,14 +155,24 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
             background.passedSpike();
             background.passedRing();
             background.passedPillar();
+            background.passedPortal();
             background.shiftLeft();
             background.getBox().move();
             background.getBox().touchRing(background.getNextRing());
             background.getBox().touchPillar(background.getNextPillar());
-            if (!background.getBox().onGround() && background.getBox().getAngle()< background.getBox().getAngleThreshold())
+            background.getBox().touchPortal(background.getNextPortal());
+            if(!background.getBox().ifPassedPortal()){
+                if (!background.getBox().onGround() && background.getBox().getAngle()< background.getBox().getAngleThreshold())
                 {
                     background.getBox().setAngle(background.getBox().getAngle() + 5);
                 }
+            }
+            else{
+                if (!background.getBox().onGround() && background.getBox().getAngle() > -1* background.getBox().getAngleThreshold())
+                {
+                    background.getBox().setAngle(background.getBox().getAngle() - 5);
+                }
+            }
             if(background.getBox().onGround()){
                     background.getBox().setAngle(background.getBox().getAngleThreshold());
             }
@@ -194,8 +204,14 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
                 if (background.getBox().getAngle() <= 180)//upside down
                 {
                     background.getBox().setAngleThreshold(360);
-                    background.getBox().setAngle(180);
-                } else {
+                    if(background.getBox().ifPassedPortal()){
+                        background.getBox().setAngle(-180);
+                    }
+                    else{
+                        background.getBox().setAngle(180);
+                    }
+                }
+                else {
                     background.getBox().setAngleThreshold(180);
                     background.getBox().setAngle(0);
                 }

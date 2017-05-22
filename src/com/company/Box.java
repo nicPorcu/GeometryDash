@@ -22,6 +22,7 @@ public class Box {
     //private int score;
     private int permGround;
     private int groundH;
+    private boolean passPortal = false;
     //This constructor gives the appropriate height to the player
     public Box(int groundH){
         permGround = groundH;
@@ -31,8 +32,17 @@ public class Box {
     }
     //You jump
     public void jump(){
-        if(this.onGround()) {
-            velocity = hop;
+        if (passPortal) {
+
+            if (this.onGround()) {
+                velocity = -hop;
+            }
+        }
+        else {
+
+            if (this.onGround()) {
+                velocity = hop;
+            }
         }
     }
     //This simulates gravity. If the player is above the ground, it will fall at an increasing rate
@@ -44,8 +54,14 @@ public class Box {
         }
         else
         {
-            velocity=0;
-            yPos=groundH+50;
+            if(passPortal){
+                velocity = 0;
+                yPos = 600 - groundH;
+            }
+            else{
+                velocity=0;
+                yPos=groundH+50;
+            }
         }
     }
     //This method is called by the ActionPerformed inside the GameRunner
@@ -70,6 +86,13 @@ public class Box {
         }
         else{
             groundH = permGround;
+        }
+    }
+
+    public void touchPortal(Portal p1){
+        if(600 - yPos >= p1.getY() && 600 - yPos <= p1.getY() + 170 && xPos >= p1.getX() && xPos <= p1.getX()+92){
+            GRAVITY = - GRAVITY;
+            passPortal = true;
         }
     }
 
@@ -111,11 +134,20 @@ public class Box {
     public void setAngleThreshold(int angt){
         angleThreshold = angt;
     }
+    public boolean ifPassedPortal(){return passPortal;}
 
     public boolean onGround()
     {
-        if (yPos-50<=groundH)
+        if (passPortal) {
+            if (yPos >= 600 - groundH)
             return true;
         return false;
+        }
+        else
+        {
+            if (yPos - 50 <= groundH)
+                return true;
+            return false;
+          }
     }
 }

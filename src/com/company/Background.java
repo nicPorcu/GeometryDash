@@ -251,7 +251,6 @@ public class Background {
         }
         return untouchableRing;
     }
-
     public Portal getNextPortal(){
         if(portalsPassed < numPortals) {
             return portals.get(portalsPassed);
