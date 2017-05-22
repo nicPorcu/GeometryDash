@@ -67,7 +67,6 @@ public class Box {
     public void touchPillar(Pillar p){
         if((600 - yPos <= p.getY()) && (xPos + 50 >= p.getX())&& (xPos + 50 >= p.getX()) && (xPos <= p.getX() + 40*p.getWidth())){
             groundH = 600 - p.getY();
-            angle = angleThreshold;
         }
         else{
             groundH = permGround;
