@@ -109,11 +109,10 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         //draws the ground
         g.drawImage(ground1, background.getGroundX(), 600 - background.getGroundHeight(), null);
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
-        g.drawImage(portal, background.getPortalX(), background.getPortalY(), null);
         g.setColor(Color.white);
         g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 36));
         g.drawString( background.getNumAttempts(), background.attemptStringPosition(), height/2 + 75);
-        ArrayList<Spike> spikes=  background.getSpikes();
+        ArrayList<Spike> spikes= background.getSpikes();
         g.setColor(Color.BLACK);
         for(Spike s: spikes)
         {
@@ -132,6 +131,10 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
                     g.drawImage(pillar, newX, newY, null);
                 }
             }
+        }
+        ArrayList<Portal> portals = background.getPortals();
+        for(Portal p :portals){
+            g.drawImage(portal, p.getX(), p.getY(), null);
         }
         rotateImage();
 

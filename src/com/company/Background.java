@@ -27,12 +27,14 @@ public class Background {
     private int pillarsPassed;
     private int groundX;
     private int ground2X;
-    private int portalX;
-    private int initialPortalX;
-    private int portalY;
     private int groundSpd;
+    private int numPortals;
+    private int portalX;
+    private int portalY;
+    private int portalsPassed;
     private ArrayList<JumpRing> rings;
     private ArrayList<Pillar> pillars;
+    private ArrayList<Portal> portals;
     private ArrayList<Integer> pillarLocX;
     private ArrayList<Integer> pillarLocY;
     private ArrayList<Integer> pillarWidth;
@@ -52,6 +54,7 @@ public class Background {
     private Spike untouchableSpike = new Spike(0, 2000);
     private JumpRing untouchableRing = new JumpRing (0, 2000);
     private Pillar untouchablePillar = new Pillar( 0, 0, 0, 0);
+    private Portal untouchablePortal = new Portal(0,0);
     //constructor where all the instance variables are initialized:
     public Background (int width, int height)
     {
@@ -76,12 +79,13 @@ public class Background {
         int lastRingLoc = 500;
         spikesPassed = 0;
         ringsPassed = 0;
+        portalsPassed = 0;
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
         numPillars = 3;
-        portalX = 2400;
-        initialPortalX = 2400;
+        numPortals = 1;
+        portalX = 2500;
         portalY = 300;
         spikes=new ArrayList<Spike>();
         pillarLocX = new ArrayList<Integer>();
@@ -118,6 +122,14 @@ public class Background {
             pillars.add(new Pillar(pillarLocX.get(i), pillarLocY.get(i), pillarWidth.get(i), pillarHeight.get(i)));
         }
 
+        portals = new ArrayList<Portal>();
+        for(int i = 0; i<numPortals; i ++){
+            portals.add(new Portal(portalX, portalY));
+            portalX += 1000;
+        }
+
+
+
         bestScore=0;
     }
     //This method updates the number of spikes passed. Necessary for the method that finds the next spike.
@@ -146,6 +158,16 @@ public class Background {
             }
         }
     }
+
+    public void passedPortal(){
+        if(b.getX() > portals.get(portalsPassed).getX()){
+            if(portalsPassed < numPortals - 1){
+                portalsPassed += 1;
+            }
+        }
+    }
+
+
 
     public int getNextSpikeLoc()
     {
@@ -177,6 +199,10 @@ public class Background {
         for (int i= 0; i< numPillars; i++)
         {
             pillars.get(i).shiftLeft(groundSpd);
+        }
+        for (int i= 0; i< numPortals; i++)
+        {
+            portals.get(i).shiftLeft(groundSpd);
         }
         backgroundX-= backgroundSpd;
         background2X-= backgroundSpd;
@@ -225,6 +251,13 @@ public class Background {
         }
         return untouchableRing;
     }
+
+    public Portal getNextPortal(){
+        if(portalsPassed < numPortals) {
+            return portals.get(portalsPassed);
+        }
+        return untouchablePortal;
+    }
     //Similar purpose to getSpikes, but for JumpRings
     public ArrayList<JumpRing> getRings(){
         return rings;
@@ -250,8 +283,9 @@ public class Background {
     }
     public int getGroundX(){return groundX;}
     public int getGround2X(){return ground2X;}
-    public int getPortalX() {return portalX;}
     public int getPortalY() {return portalY;}
+    public int getPortalX() {return portalX;}
+    public ArrayList<Portal> getPortals() {return portals;}
     public void reset()
     {
             numAttempts++;
@@ -260,7 +294,6 @@ public class Background {
             ground2X = initialGround2X;
             backgroundX = initialBackgroundX;
             background2X = initialBackground2X;
-            portalX = initialPortalX;
             spikesPassed = 0;
             ringsPassed = 0;
             pillarsPassed = 0;
@@ -271,6 +304,9 @@ public class Background {
                 r.reset();
             }
             for (Pillar p : pillars) {
+                p.reset();
+            }
+            for (Portal p : portals) {
                 p.reset();
             }
 

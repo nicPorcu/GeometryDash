@@ -16,7 +16,7 @@ public class Box {
     private int yPos;
     private static final int xPos=100;
     private double velocity;
-    private static final double GRAVITY = 0.33;
+    private static double GRAVITY = 0.33;
     private int angle = 360;
     private int angleThreshold = 180;
     //private int score;
@@ -72,6 +72,7 @@ public class Box {
             groundH = permGround;
         }
     }
+
     //Is used by the ActionPerformed inside the GameRunner
     //Sees if the player has touched the nearest spike to the right
     public boolean isDead(Spike s, Pillar p){
