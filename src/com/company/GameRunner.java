@@ -24,7 +24,7 @@ import java.awt.GraphicsEnvironment;
 
  */
 
-public class GameRunner extends JComponent implements ActionListener, KeyListener
+public class  GameRunner extends JComponent implements ActionListener, KeyListener
 
 {
     private int width ,height;
@@ -38,6 +38,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     private Image portal;
     private Graphics g;
     private int toDie;
+    boolean isDead;
 
 
     Background background;
@@ -65,6 +66,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         width= 2000;
         height=600;
         toDie = 0;
+        isDead=false;
         background= new Background(width, height);
 
         addKeyListener(this);
@@ -112,6 +114,8 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
         g.setColor(Color.white);
         g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 36));
         g.drawString( background.getNumAttempts(), background.attemptStringPosition(), height/2 + 75);
+        g.drawString(background.newBestScore(), 300, 200);
+
         ArrayList<Spike> spikes= background.getSpikes();
         g.setColor(Color.BLACK);
         for(Spike s: spikes)
@@ -170,9 +174,13 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
         }
         else{
+
             toDie += 1;
-            if(toDie == 50){background.reset();
-            toDie = 0;}
+
+            if(toDie == 50)
+            {background.reset();
+            toDie = 0;
+            }
         }
         repaint();
 

@@ -46,8 +46,10 @@ public class Background {
     private int numAttempts;
     private int attemptStringXPos;
     private int attemptStringInitialXPos;
-
-    private int bestScore;
+    private double score;
+    private double scoreChange;
+    private double bestScore;
+    private double levelLength;
 
     //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
     //a spike and a ring that could not be passed at the very end of the list.
@@ -58,6 +60,7 @@ public class Background {
     //constructor where all the instance variables are initialized:
     public Background (int width, int height)
     {
+
         this.width=width;
         this.height=height;
         backgroundX=0;
@@ -111,6 +114,7 @@ public class Background {
         {
             spikes.add(new Spike(lastLoc, height - ground));
             lastLoc+= getNextSpikeLoc();
+
         }
         rings = new ArrayList<JumpRing>();
         for(int i = 0; i<numRings; i ++){
@@ -129,8 +133,11 @@ public class Background {
         }
 
 
-
+        levelLength=1000;
+        score=0;
+        scoreChange=levelLength/groundSpd;
         bestScore=0;
+
     }
     //This method updates the number of spikes passed. Necessary for the method that finds the next spike.
     //This is necessary to prevent the program from checking every single spike to see if it is touching the player.
@@ -188,6 +195,7 @@ public class Background {
     //in the screen by the proper amount.
     public void shiftLeft()
     {
+        score+=scoreChange;
         for (int i= 0; i< numSpikes; i++)
         {
             spikes.get(i).shiftLeft(groundSpd);
@@ -288,6 +296,7 @@ public class Background {
     public ArrayList<Portal> getPortals() {return portals;}
     public void reset()
     {
+            score=0;
             numAttempts++;
             attemptStringXPos = attemptStringInitialXPos;
             groundX = initialGroundX;
@@ -313,6 +322,19 @@ public class Background {
 
 
 
+    }
+    public String newBestScore()
+    {
+        if(score>bestScore)
+        {
+            bestScore=score;
+            String s="New Best Score: \n" + score;
+            return s;
+        }
+        else
+        {
+            return"";
+        }
     }
     public String getNumAttempts()
     {
