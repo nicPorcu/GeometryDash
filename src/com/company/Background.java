@@ -93,12 +93,12 @@ public class Background {
         pillarWidth = new ArrayList<Integer>();
         pillarHeight = new ArrayList<Integer>();
         pillarLocX.add(650);
-        pillarLocX.add(1000);
-        pillarLocX.add(1400);
-        pillarLocY.add(height- ground1);
-        pillarLocY.add(height - ground1);
+        pillarLocX.add(850);
+        pillarLocX.add(1450);
+        pillarLocY.add(height - ground1 + 100);
+        pillarLocY.add(height - ground1 +100);
         pillarLocY.add(ground1 + 20);
-        pillarWidth.add(5);
+        pillarWidth.add(2);
         pillarWidth.add(5);
         pillarWidth.add(1);
         pillarHeight.add(1);
