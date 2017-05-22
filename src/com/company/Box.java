@@ -67,6 +67,7 @@ public class Box {
     public void touchPillar(Pillar p){
         if((600 - yPos <= p.getY()) && (xPos + 50 >= p.getX())&& (xPos + 50 >= p.getX()) && (xPos <= p.getX() + 40*p.getWidth())){
             groundH = 600 - p.getY();
+            angle = angleThreshold;
         }
         else{
             groundH = permGround;
@@ -74,11 +75,14 @@ public class Box {
     }
     //Is used by the ActionPerformed inside the GameRunner
     //Sees if the player has touched the nearest spike to the right
-    public boolean isDead(Spike s){
+    public boolean isDead(Spike s, Pillar p){
             if(600-yPos >= s.getY()[1] - 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
                 return true;
             }
             if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 600-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 80  - s.getX()[0]))){
+                return true;
+            }
+            if(600 -yPos >= p.getY() && 600 - yPos <= p.getY() + 40*p.getHeight() && xPos + 50 >= p.getX() && xPos + 50 < p.getX() + 40*p.getWidth()){
                 return true;
             }
 

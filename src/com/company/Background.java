@@ -91,7 +91,7 @@ public class Background {
         pillarLocX.add(650);
         pillarLocX.add(1000);
         pillarLocX.add(1400);
-        pillarLocY.add(height - ground1);
+        pillarLocY.add(height- ground1);
         pillarLocY.add(height - ground1);
         pillarLocY.add(ground1 + 20);
         pillarWidth.add(5);

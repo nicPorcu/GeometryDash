@@ -147,7 +147,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
     {
 
-        if (!background.getBox().isDead(background.getNextSpike()))
+        if (!background.getBox().isDead(background.getNextSpike(), background.getNextPillar()))
         {
             background.passedSpike();
             background.passedRing();
