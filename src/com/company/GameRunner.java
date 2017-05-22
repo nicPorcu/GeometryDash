@@ -37,6 +37,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     private Image pillar;
     private Image portal;
     private Graphics g;
+    private int toDie;
 
 
     Background background;
@@ -63,6 +64,7 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
     public GameRunner(){
         width= 2000;
         height=600;
+        toDie = 0;
         background= new Background(width, height);
 
         addKeyListener(this);
@@ -163,8 +165,9 @@ public class GameRunner extends JComponent implements ActionListener, KeyListene
 
         }
         else{
-
-            background.reset();
+            toDie += 1;
+            if(toDie == 50){background.reset();
+            toDie = 0;}
         }
         repaint();
 
