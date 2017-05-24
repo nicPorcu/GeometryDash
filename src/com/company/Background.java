@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Background {
     private int ground;
+    private int permGround;
     private int ground1;
     private final int initialGroundX;
     private final int initialGround2X;
@@ -109,6 +110,7 @@ public class Background {
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
+        permGround=ground;
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
@@ -132,7 +134,7 @@ public class Background {
         }
 
 
-        levelLength=2500;
+        levelLength=spikes.get(numSpikes-1).getX()[2];
         score=0;
 
         bestScore=0;
@@ -294,6 +296,7 @@ public class Background {
     public ArrayList<Portal> getPortals() {return portals;}
     public void reset()
     {
+            ground=permGround;
             score=0;
             numAttempts++;
             attemptStringXPos = attemptStringInitialXPos;

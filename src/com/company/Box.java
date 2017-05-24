@@ -19,7 +19,7 @@ public class Box {
     private double velocity;
     private static double GRAVITY = 0.33;
     private int angle = 360;
-    private int angleThreshold = 180;
+    private int angleThreshold = 0;
     //private int score;
     private int permGround;
     private int groundH;
@@ -158,6 +158,7 @@ public class Box {
         groundH=permGround;
         yPos = orgYPos;
         angle = 360;
+        angleThreshold=0;
         GRAVITY=Math.abs(GRAVITY);
         velocity=0;
         passPortal = false;
