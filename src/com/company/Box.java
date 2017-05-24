@@ -12,7 +12,7 @@ package com.company;
 //random
 public class Box {
     private static final double hop = 8.5;
-    private static final double ringHop = 15;
+    private static final double ringHop = 10;
     private int yPos;
     private static final int xPos=100;
     private double velocity;
