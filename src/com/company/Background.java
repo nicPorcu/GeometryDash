@@ -308,6 +308,7 @@ public class Background {
             spikesPassed = 0;
             ringsPassed = 0;
             pillarsPassed = 0;
+            portalsPassed = 0;
             b.reset();
             for (Spike s : spikes) {
                 s.reset();
@@ -318,8 +319,8 @@ public class Background {
             for (Pillar p : pillars) {
                 p.reset();
             }
-            for (Portal p : portals) {
-                p.reset();
+            for (Portal x : portals) {
+                x.reset();
             }
 
 

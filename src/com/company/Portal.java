@@ -41,7 +41,7 @@ public class Portal {
             {
                 x=initialX;
                 y= initialY;
-                passed = false;
+                this.passed = false;
             }
 
 
