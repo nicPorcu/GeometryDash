@@ -14,6 +14,7 @@ public class Box {
     private static final double hop = 8.5;
     private static final double ringHop = 10;
     private int yPos;
+    private int orgYPos;
     private static final int xPos=100;
     private double velocity;
     private static double GRAVITY = 0.33;
@@ -28,6 +29,7 @@ public class Box {
         permGround = groundH;
         this.groundH=groundH;
         yPos= groundH+50;
+        orgYPos = yPos;
         velocity = 0;
     }
     //You jump
@@ -149,5 +151,16 @@ public class Box {
                 return true;
             return false;
           }
+    }
+    public void reset()
+
+    {
+        groundH=permGround;
+        yPos = orgYPos;
+        angle = 360;
+        GRAVITY=Math.abs(GRAVITY);
+        velocity=0;
+
+
     }
 }
