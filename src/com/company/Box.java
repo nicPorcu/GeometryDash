@@ -52,7 +52,12 @@ public class Box {
     {
         yPos+=velocity;
         if(!this.onGround()) {
-            velocity -= GRAVITY;
+            if(!passPortal){
+                velocity -= GRAVITY;
+            }
+            else{
+                velocity += GRAVITY;
+            }
         }
         else
         {
@@ -93,7 +98,6 @@ public class Box {
 
     public void touchPortal(Portal p1){
         if(600 - yPos >= p1.getY() && 600 - yPos <= p1.getY() + 170 && xPos >= p1.getX() && xPos <= p1.getX()+92){
-            GRAVITY = - Math.abs(GRAVITY);
             passPortal = true;
         }
     }
@@ -158,8 +162,6 @@ public class Box {
         groundH=permGround;
         yPos = orgYPos;
         angle = 360;
-        angleThreshold=0;
-        GRAVITY=Math.abs(GRAVITY);
         velocity=0;
         passPortal = false;
 

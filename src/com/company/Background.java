@@ -70,7 +70,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=1;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -87,7 +87,7 @@ public class Background {
         spikeThreshold = 2;
         spikeCounter=1;
         numPillars = 3;
-        numPortals = 1;
+        numPortals = 2;
         portalX = 2500;
         portalY = 300;
         spikes=new ArrayList<Spike>();
@@ -131,6 +131,7 @@ public class Background {
         for(int i = 0; i<numPortals; i ++){
             portals.add(new Portal(portalX, portalY));
             portalX += 1000;
+            portalY = 600 - portalY - ground;
         }
 
 
