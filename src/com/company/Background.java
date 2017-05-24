@@ -276,7 +276,7 @@ public class Background {
     //This allows the GameRunner class to attain information about the player
     public Box getBox()
     {
-        return b;
+        return b; //hi
     }
     //I think you know what these are.
     public int getBackgroundX()
