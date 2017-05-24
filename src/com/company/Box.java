@@ -12,7 +12,7 @@ package com.company;
 //random
 public class Box {
     private static final double hop = 8.5;
-    private static final double ringHop = 10;
+    private static final double ringHop = 11;
     private int yPos;
     private int orgYPos;
     private static final int xPos=100;
@@ -93,7 +93,7 @@ public class Box {
 
     public void touchPortal(Portal p1){
         if(600 - yPos >= p1.getY() && 600 - yPos <= p1.getY() + 170 && xPos >= p1.getX() && xPos <= p1.getX()+92){
-            GRAVITY = - GRAVITY;
+            GRAVITY = - Math.abs(GRAVITY);
             passPortal = true;
         }
     }
@@ -160,6 +160,7 @@ public class Box {
         angle = 360;
         GRAVITY=Math.abs(GRAVITY);
         velocity=0;
+        passPortal = false;
 
 
     }
