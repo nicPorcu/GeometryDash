@@ -70,7 +70,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=1;
+        numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -131,7 +131,7 @@ public class Background {
         for(int i = 0; i<numPortals; i ++){
             portals.add(new Portal(portalX, portalY));
             portalX += 1000;
-            portalY = 600 - ground;
+            portalY = ground;
         }
 
 

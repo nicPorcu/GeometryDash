@@ -168,6 +168,5 @@ public class Box {
         velocity=0;
         passPortal = false;
 
-
     }
 }
