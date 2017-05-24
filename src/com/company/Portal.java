@@ -10,12 +10,14 @@ public class Portal {
     private int y;
     private int initialX;
     private int initialY;
+    private boolean passed;
 
             public Portal (int x, int y){
                 this.x = x;
                 this.y = y;
                 initialX = x;
                 initialY = y;
+                passed = false;
             }
 
             public int getX()
@@ -28,6 +30,8 @@ public class Portal {
                 return y;
             }
 
+            public boolean isPassed(){return passed;}
+            public void justPassed(){passed = true;}
 
             public void shiftLeft(int spd){
                 x -= spd;

@@ -131,7 +131,7 @@ public class Background {
         for(int i = 0; i<numPortals; i ++){
             portals.add(new Portal(portalX, portalY));
             portalX += 1000;
-            portalY = 600 - portalY - ground;
+            portalY = 600 - ground;
         }
 
 
