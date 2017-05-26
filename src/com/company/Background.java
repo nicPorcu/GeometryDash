@@ -220,7 +220,7 @@ public class Background {
         }
         for (int i= 0; i< numPillars; i++)
         {
-            pillars.get(i).shiftLeft(groundSpd);
+            pillars.get(i).shiftLeft(groundSpd);//check==cks
         }
         for (int i= 0; i< numPortals; i++)
         {
