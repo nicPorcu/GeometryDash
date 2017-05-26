@@ -102,6 +102,7 @@ public class Box {
         if(600 - yPos >= p1.getY() && 600 - yPos <= p1.getY() + 170 && xPos >= p1.getX() && xPos <= p1.getX()+92){
             if(!p1.isPassed()) {
                 passPortal = !passPortal;
+                velocity = 0;
                 p1.justPassed();
             }
         }

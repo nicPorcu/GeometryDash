@@ -146,7 +146,7 @@ public class Background {
         }
 
 
-        levelLength=2500;
+        levelLength= spikes.get(numSpikes - 1).getX()[2];
         score=0;
 
         bestScore=0;
