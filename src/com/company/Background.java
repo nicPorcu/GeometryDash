@@ -70,7 +70,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=1;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -131,7 +131,7 @@ public class Background {
         for(int i = 0; i<numPortals; i ++){
             portals.add(new Portal(portalX, portalY));
             portalX += 1000;
-            portalY = ground;
+            portalY = 600 - ground;
         }
 
 
@@ -308,7 +308,6 @@ public class Background {
             spikesPassed = 0;
             ringsPassed = 0;
             pillarsPassed = 0;
-            portalsPassed = 0;
             b.reset();
             for (Spike s : spikes) {
                 s.reset();
@@ -319,8 +318,8 @@ public class Background {
             for (Pillar p : pillars) {
                 p.reset();
             }
-            for (Portal x : portals) {
-                x.reset();
+            for (Portal p : portals) {
+                p.reset();
             }
 
 

@@ -24,6 +24,7 @@ public class Box {
     private int permGround;
     private int groundH;
     private boolean passPortal = false;
+    private boolean isSpaceship;
     //This constructor gives the appropriate height to the player
     public Box(int groundH){
         permGround = groundH;
@@ -31,6 +32,7 @@ public class Box {
         yPos= groundH+50;
         orgYPos = yPos;
         velocity = 0;
+        isSpaceship=false;
     }
     //You jump
     public void jump(){
