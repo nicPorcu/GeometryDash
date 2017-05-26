@@ -225,7 +225,7 @@ public class Background {
         for (int i= 0; i< numPortals; i++)
         {
             portals.get(i).shiftLeft(groundSpd);
-        }
+        }//hi
         backgroundX-= backgroundSpd;
         background2X-= backgroundSpd;
         if(backgroundX<=-1*width){
