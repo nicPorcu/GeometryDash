@@ -71,7 +71,7 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         toDie = 0;
         isDead=false;
         background= new Background(width, height);
-
+//
         addKeyListener(this);
         try {
             sprite = ImageIO.read(new File("Sprite1.png"));
