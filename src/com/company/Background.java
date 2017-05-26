@@ -74,7 +74,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=5;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -94,7 +94,7 @@ public class Background {
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 10;
+        numPillars = 12;
         numPortals = 2;
         portalX = 2500;
         portalY = 300;
@@ -113,6 +113,8 @@ public class Background {
         pillarLocX.add(4400);
         pillarLocX.add(4550);
         pillarLocX.add(4700);
+        pillarLocX.add(4850);
+        pillarLocX.add(5200);
 
 
         pillarLocY.add(height - ground1 + 100);
@@ -125,6 +127,8 @@ public class Background {
         pillarLocY.add(ground1-100);
         pillarLocY.add(ground1-40);
         pillarLocY.add(ground1+20);
+        pillarLocY.add(ground1-40);
+        pillarLocY.add(ground1-40);
 
 
 
@@ -138,13 +142,14 @@ public class Background {
         pillarWidth.add(1);
         pillarWidth.add(1);
         pillarWidth.add(1);
-        pillarWidth.add(1);
+        pillarWidth.add(6);
         pillarWidth.add(1);
 
 
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(2);
+        pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
