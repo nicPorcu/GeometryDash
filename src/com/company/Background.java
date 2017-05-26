@@ -351,6 +351,20 @@ public class Background {
 
 
     }
+    public String currentScore(){
+        String s="Current Score: \n" + (int)(score/levelLength*100)+"%";
+        return s;
+    }
+    public String bestScore(){
+        String s = "";
+        if(numAttempts == 1){
+            s="Best Score: \n" + (int)(score/levelLength*100)+"%";
+        }
+        else{
+            s="Best Score: \n" + (int)(bestScore/levelLength*100)+"%";
+        }
+        return s;
+    }
     public String newBestScore()
     {
         if(score>=bestScore&&b.isDead(spikes.get(spikesPassed), pillars.get(pillarsPassed)))

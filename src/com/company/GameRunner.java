@@ -122,7 +122,6 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         g.setColor(Color.white);
         g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 36));
         g.drawString( background.getNumAttempts(), background.attemptStringPosition(), height/2 + 75);
-        g.drawString(background.newBestScore(), 300, 200);
 
         ArrayList<Spike> spikes= background.getSpikes();
         g.setColor(Color.BLACK);
@@ -152,6 +151,11 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         for(Portal p :portals){
             g.drawImage(portalRight, p.getX(), p.getY(), null);
         }
+        g.setColor(Color.WHITE);
+        g.drawString(background.newBestScore(), 300, 200);
+        g.drawString(background.currentScore(), 100, 100);
+        g.drawString(background.bestScore(), 100, 150);
+
 
 
     }
