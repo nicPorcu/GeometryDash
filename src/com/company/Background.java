@@ -246,6 +246,12 @@ public class Background {
         if(ground2X <= -1*width){
             ground2X = width;
         }
+        if(groundtX <= -1*width){
+            groundtX = width;
+        }
+        if(groundt1X <= -1*width){
+            groundt1X = width;
+        }
         attemptStringXPos-=backgroundSpd;
     }
     //This method returns the closest spike to the right (first unpassed spike).
