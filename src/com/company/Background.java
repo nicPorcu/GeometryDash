@@ -74,7 +74,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=5;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -94,7 +94,7 @@ public class Background {
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 3;
+        numPillars = 12;
         numPortals = 2;
         portalX = 2500;
         portalY = 300;
@@ -106,15 +106,59 @@ public class Background {
         pillarLocX.add(650);
         pillarLocX.add(900);
         pillarLocX.add(1450);
+        pillarLocX.add(3800);
+        pillarLocX.add(3950);
+        pillarLocX.add(4100);
+        pillarLocX.add(4250);
+        pillarLocX.add(4400);
+        pillarLocX.add(4550);
+        pillarLocX.add(4700);
+        pillarLocX.add(4850);
+        pillarLocX.add(5200);
+
+
         pillarLocY.add(height - ground1 + 100);
         pillarLocY.add(height - ground1 +100);
         pillarLocY.add(ground1 + 20);
+        pillarLocY.add(ground1+20);
+        pillarLocY.add(ground1-40);
+        pillarLocY.add(ground1-100);
+        pillarLocY.add(ground1-160);
+        pillarLocY.add(ground1-100);
+        pillarLocY.add(ground1-40);
+        pillarLocY.add(ground1+20);
+        pillarLocY.add(ground1-40);
+        pillarLocY.add(ground1-40);
+
+
+
         pillarWidth.add(3);
         pillarWidth.add(5);
         pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(1);
+        pillarWidth.add(6);
+        pillarWidth.add(1);
+
+
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(2);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
+        pillarHeight.add(1);
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
