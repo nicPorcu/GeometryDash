@@ -32,6 +32,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
     private Image background1;
     private Image background2;
     private Image ground1;
+    private Image groundt;
+    private Image groundt1;
     private Image ground2;
     private Image jumpRing;
     private Image pillar;
@@ -76,6 +78,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             background1 = ImageIO.read(new File("background1.png"));
             background2 = ImageIO.read(new File("background2.png"));
             ground1 = ImageIO.read(new File("ground1.png"));
+            groundt = ImageIO.read(new File("groundt.png"));
+            groundt1 = ImageIO.read(new File("groundt.png"));
             ground2 = ImageIO.read(new File("ground1.png"));
             jumpRing = ImageIO.read(new File("jump1.png"));
             pillar = ImageIO.read(new File("block.png"));
@@ -112,6 +116,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         g.drawImage(background2, background.getBackground2X(), 0, null);
         //draws the ground
         g.drawImage(ground1, background.getGroundX(), 600 - background.getGroundHeight(), null);
+        g.drawImage(groundt, background.getGroundtX(), 0, null);
+        g.drawImage(groundt1, background.getGroundt1X(), 0, null);
         g.drawImage(ground2, background.getGround2X(), 600 - background.getGroundHeight(), null);
         g.setColor(Color.white);
         g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 36));

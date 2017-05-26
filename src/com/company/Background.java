@@ -20,6 +20,8 @@ public class Background {
     private int background2X;
     private final int initialBackgroundX;
     private final int initialBackground2X;
+    private final int initialGroundtX;
+    private final int initialGroundt1X;
     private int width;
     private int height;
     private int backgroundSpd;
@@ -27,6 +29,8 @@ public class Background {
     private int ringsPassed;
     private int pillarsPassed;
     private int groundX;
+    private int groundtX;
+    private int groundt1X;
     private int ground2X;
     private int groundSpd;
     private int numPortals;
@@ -70,14 +74,18 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=1;
+        numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
         groundX = 0;
+        groundtX = 0;
+        groundt1X = 2000;
         ground2X = 2000;
         initialGroundX=groundX;
         initialGround2X=ground2X;
+        initialGroundtX = groundtX;
+        initialGroundt1X = groundt1X;
         int lastLoc=500;
         int lastRingLoc = 500;
         spikesPassed = 0;
@@ -98,19 +106,15 @@ public class Background {
         pillarLocX.add(650);
         pillarLocX.add(900);
         pillarLocX.add(1450);
-       // pillarLocX.add(3000);
         pillarLocY.add(height - ground1 + 100);
         pillarLocY.add(height - ground1 +100);
         pillarLocY.add(ground1 + 20);
-        //pillarLocY.add(0);
         pillarWidth.add(3);
         pillarWidth.add(5);
         pillarWidth.add(1);
-        //pillarWidth.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(2);
-        //pillarHeight.add(10);
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
@@ -135,11 +139,14 @@ public class Background {
         for(int i = 0; i<numPortals; i ++){
             portals.add(new Portal(portalX, portalY));
             portalX += 1000;
-            portalY = 600 - ground;
+
+            portalY = ground;
+            portalY = 100;
+
         }
 
 
-        levelLength=spikes.get(numSpikes-1).getX()[2];
+        levelLength=2500;
         score=0;
 
         bestScore=0;
@@ -163,6 +170,7 @@ public class Background {
             }
         }
     }
+
     //Similar method as the above, but for JumpRings instead.
     public void passedRing(){
         if(b.getX() > rings.get(ringsPassed).getRingX()){
@@ -228,6 +236,8 @@ public class Background {
             background2X=width;
         }
         groundX -= groundSpd;
+        groundtX -= groundSpd;
+        groundt1X -= groundSpd;
         ground2X -= groundSpd;
         portalX -= groundSpd;
         if(groundX <= -1*width){
@@ -295,6 +305,8 @@ public class Background {
         return background2X;
     }
     public int getGroundX(){return groundX;}
+    public int getGroundtX(){return groundtX;}
+    public int getGroundt1X(){return groundt1X;}
     public int getGround2X(){return ground2X;}
     public int getPortalY() {return portalY;}
     public int getPortalX() {return portalX;}
@@ -307,11 +319,14 @@ public class Background {
             attemptStringXPos = attemptStringInitialXPos;
             groundX = initialGroundX;
             ground2X = initialGround2X;
+            groundtX = initialGroundtX;
+            groundt1X = initialGroundt1X;
             backgroundX = initialBackgroundX;
             background2X = initialBackground2X;
             spikesPassed = 0;
             ringsPassed = 0;
             pillarsPassed = 0;
+            portalsPassed = 0;
             b.reset();
             for (Spike s : spikes) {
                 s.reset();
@@ -322,8 +337,8 @@ public class Background {
             for (Pillar p : pillars) {
                 p.reset();
             }
-            for (Portal p : portals) {
-                p.reset();
+            for (Portal x : portals) {
+                x.reset();
             }
 
 
