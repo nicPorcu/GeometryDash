@@ -35,7 +35,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
     private Image ground2;
     private Image jumpRing;
     private Image pillar;
-    private Image portal;
+    private Image portalLeft;
+    private Image portalRight;
     private Graphics g;
     private int toDie;
     boolean isDead;
@@ -78,7 +79,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             ground2 = ImageIO.read(new File("ground1.png"));
             jumpRing = ImageIO.read(new File("jump1.png"));
             pillar = ImageIO.read(new File("block.png"));
-            portal = ImageIO.read(new File("portal.png"));
+            portalLeft = ImageIO.read(new File("portal left.png"));
+            portalRight = ImageIO.read(new File("portal right.png"));
             InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("PUSAB___.otf");
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(48f);
 
@@ -138,9 +140,12 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         }
         ArrayList<Portal> portals = background.getPortals();
         for(Portal p :portals){
-            g.drawImage(portal, p.getX(), p.getY(), null);
+            g.drawImage(portalLeft, p.getX(), p.getY(), null);
         }
         rotateImage();
+        for(Portal p :portals){
+            g.drawImage(portalRight, p.getX(), p.getY(), null);
+        }
 
 
     }
