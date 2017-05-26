@@ -392,7 +392,7 @@ public class Background {
             }
 
 
-
+//
 
     }
     public String currentScore(){
