@@ -90,7 +90,7 @@ public class Box {
         }
     }
     public void touchPillar(Pillar p){
-        if((600 - yPos <= p.getY()) && (xPos + 50 >= p.getX())&& (xPos + 50 >= p.getX()) && (xPos <= p.getX() + 40*p.getWidth())){
+        if((650 - yPos <= p.getY()) && (xPos + 50 >= p.getX())&& (xPos + 50 >= p.getX()) && (xPos <= p.getX() + 40*p.getWidth())){
             groundH = 600 - p.getY();
         }
         else{
@@ -99,7 +99,7 @@ public class Box {
     }
 
     public void touchPortal(Portal p1){
-        if(600 - yPos >= p1.getY() && 600 - yPos <= p1.getY() + 170 && xPos >= p1.getX() && xPos <= p1.getX()+92){
+        if(650 - yPos >= p1.getY() && 650 - yPos <= p1.getY() + 170 && xPos >= p1.getX() && xPos <= p1.getX()+92){
             if(!p1.isPassed()) {
                 passPortal = !passPortal;
                 velocity = 0;
@@ -114,7 +114,7 @@ public class Box {
             if(600-yPos >= s.getY()[1] - 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
                 return true;
             }
-            if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 600-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 80  - s.getX()[0]))){
+            if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 650-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 50  - s.getX()[0]))){
                 return true;
             }
             if(600 -yPos >= p.getY() && 600 - yPos <= p.getY() + 40*p.getHeight() && xPos + 50 >= p.getX() && xPos + 50 < p.getX() + 40*p.getWidth()){

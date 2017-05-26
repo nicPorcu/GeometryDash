@@ -74,7 +74,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=5;
+        numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -392,7 +392,7 @@ public class Background {
             }
 
 
-//
+
 
     }
     public String currentScore(){

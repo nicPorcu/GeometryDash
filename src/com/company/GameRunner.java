@@ -152,9 +152,10 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             g.drawImage(portalRight, p.getX(), p.getY(), null);
         }
         g.setColor(Color.WHITE);
-        g.drawString(background.newBestScore(), 300, 200);
-        g.drawString(background.currentScore(), 100, 100);
-        g.drawString(background.bestScore(), 100, 150);
+        g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 20));
+        g.drawString(background.newBestScore(), 50, 90);
+        g.drawString(background.currentScore(), 50, 40);
+        g.drawString(background.bestScore(), 50, 65);
 
 
 
