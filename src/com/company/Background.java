@@ -69,7 +69,7 @@ public class Background {
         this.height=height;
         backgroundX=0;
         background2X=width;
-        initialBackgroundX=backgroundX;
+        initialBackgroundX=backgroundX;//
         initialBackground2X=background2X;
         ground = 100;
         ground1 = 400;
