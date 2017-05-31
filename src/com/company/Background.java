@@ -74,7 +74,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=1;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -106,6 +106,7 @@ public class Background {
         pillarLocX.add(650);
         pillarLocX.add(900);
         pillarLocX.add(1450);
+        pillarLocX.add(2800);
         pillarLocX.add(3800);
         pillarLocX.add(3950);
         pillarLocX.add(4100);
@@ -115,12 +116,13 @@ public class Background {
         pillarLocX.add(4700);
         pillarLocX.add(4850);
         pillarLocX.add(5200);
-        pillarLocX.add(2800);
+
 
 
         pillarLocY.add(height - ground1 + 100);
         pillarLocY.add(height - ground1 +100);
         pillarLocY.add(ground1 + 20);
+        pillarLocY.add(100);
         pillarLocY.add(ground1+20);
         pillarLocY.add(ground1-40);
         pillarLocY.add(ground1-100);
@@ -130,13 +132,14 @@ public class Background {
         pillarLocY.add(ground1+20);
         pillarLocY.add(ground1-40);
         pillarLocY.add(ground1-40);
-        pillarLocY.add(100);
+
 
 
 
         pillarWidth.add(3);
         pillarWidth.add(5);
         pillarWidth.add(1);
+        pillarWidth.add(5);
         pillarWidth.add(1);
         pillarWidth.add(1);
         pillarWidth.add(1);
@@ -146,11 +149,12 @@ public class Background {
         pillarWidth.add(1);
         pillarWidth.add(6);
         pillarWidth.add(1);
-        pillarWidth.add(1);
+
 
 
         pillarHeight.add(1);
         pillarHeight.add(1);
+        pillarHeight.add(2);
         pillarHeight.add(2);
         pillarHeight.add(1);
         pillarHeight.add(1);
@@ -161,7 +165,7 @@ public class Background {
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
-        pillarHeight.add(2);
+
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
