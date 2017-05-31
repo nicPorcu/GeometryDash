@@ -76,7 +76,7 @@ public class Background {
         b = new Box(ground);
         numSpikes=1;
         numRings =2;
-        backgroundSpd = 1;
+        backgroundSpd = 100;
         groundSpd= 3;
         groundX = 0;
         groundtX = 0;

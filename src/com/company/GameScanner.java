@@ -11,8 +11,7 @@ public class GameScanner {
 
 
 
-        ArrayList<Spike> spikes;
-
+        private static ArrayList<Spike> spikes;
         private static final String FILENAME = "/Users/apcsaper3/IdeaProjects/GeometryDash/Level1.txt";
 
 
@@ -22,24 +21,36 @@ public class GameScanner {
         }
 
 
-        public  void addSpikes() {
+        public static String getLine() {
             try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
 
                 String sCurrentLine;
 
-                while ((sCurrentLine = br.readLine()) != null) {
-                    String xPos=sCurrentLine.substring(0,sCurrentLine.indexOf(":"));
-                    String yPos=sCurrentLine.substring(sCurrentLine.indexOf(":")+1);
-                    spikes.add(new Spike(Integer.parseInt(xPos), Integer.parseInt(yPos)));
+                if ((sCurrentLine = br.readLine()) != null) {
+                    return sCurrentLine;
                 }
 
             } catch (IOException e) {
+                System.out.print("Bread");
                 e.printStackTrace();
+
             }
+            return "";
 
         }
 
-        public ArrayList<Spike> getSpikes() {
+
+    public void addSpike()
+    {
+        String line= getLine();
+        int xPos= Integer.parseInt(line.substring(0, line.indexOf(":")));
+        int yPos= Integer.parseInt(line.substring(line.indexOf(":")+1));
+        spikes.add(new Spike(xPos, yPos));
+    }
+
+
+
+    public ArrayList<Spike> getSpikes() {
             return spikes;
         }
 
