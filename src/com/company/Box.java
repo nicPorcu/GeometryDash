@@ -120,7 +120,7 @@ public class Box {
             if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 650-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 50  - s.getX()[0]))){
                 return true;
             }
-            if(600 -yPos >= p.getY() && 650 - yPos <= p.getY() + 40*p.getHeight() && xPos + 50 >= p.getX() && xPos + 50 < p.getX() + 40*p.getWidth()){
+            if(600 -yPos >= p.getY() && 600 - yPos < p.getY() + 40*p.getHeight() && xPos + 50 >= p.getX() && xPos + 50 < p.getX() + 40*p.getWidth()){
                 return true;
             }
 
