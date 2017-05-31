@@ -94,7 +94,7 @@ public class Background {
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 12;
+        numPillars = 13;
         numPortals = 2;
         portalX = 2500;
         portalY = 300;
@@ -115,6 +115,7 @@ public class Background {
         pillarLocX.add(4700);
         pillarLocX.add(4850);
         pillarLocX.add(5200);
+        pillarLocX.add(2800);
 
 
         pillarLocY.add(height - ground1 + 100);
@@ -129,6 +130,7 @@ public class Background {
         pillarLocY.add(ground1+20);
         pillarLocY.add(ground1-40);
         pillarLocY.add(ground1-40);
+        pillarLocY.add(100);
 
 
 
@@ -144,6 +146,7 @@ public class Background {
         pillarWidth.add(1);
         pillarWidth.add(6);
         pillarWidth.add(1);
+        pillarWidth.add(1);
 
 
         pillarHeight.add(1);
@@ -158,7 +161,7 @@ public class Background {
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
-        pillarHeight.add(1);
+        pillarHeight.add(2);
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
@@ -392,7 +395,7 @@ public class Background {
             }
 
 
-
+//
 
     }
     public String currentScore(){
