@@ -112,7 +112,7 @@ public class Background {
         pillarLocX.add(4175);
         pillarLocX.add(4300);
         pillarLocX.add(4425);
-        pillarLocX.add(4550);
+        pillarLocX.add(4550);//hi
         pillarLocX.add(4675);
         pillarLocX.add(2800);
         pillarLocX.add(5500);
