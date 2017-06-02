@@ -260,7 +260,7 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
 
         if (e.getKeyCode() == 71)//g
         {
-            background.getBox().reverseGravity();
+            background.getBox().gravityTroll();
         }
 
     }

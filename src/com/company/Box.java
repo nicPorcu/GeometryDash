@@ -110,7 +110,10 @@ public class Box {
             }
         }
     }
-
+    public void gravityTroll(){
+        velocity = 0;
+        passPortal = !passPortal;
+    }
     //Is used by the ActionPerformed inside the GameRunner
     //Sees if the player has touched the nearest spike to the right
     public boolean isDead(Spike s, Pillar p){
