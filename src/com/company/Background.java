@@ -76,7 +76,7 @@ public class Background {
         b = new Box(ground);
         numSpikes=1;
         numRings =2;
-        backgroundSpd = 100;
+        backgroundSpd = 1;
         groundSpd= 3;
         groundX = 0;
         groundtX = 0;
@@ -94,7 +94,7 @@ public class Background {
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 13;
+        numPillars = 15;
         numPortals = 2;
         portalX = 2500;
         portalY = 300;
@@ -107,21 +107,25 @@ public class Background {
         pillarLocX.add(900);
         pillarLocX.add(1450);
         pillarLocX.add(2800);
+        pillarLocX.add(3100);
+        pillarLocX.add(3250);
         pillarLocX.add(3800);
-        pillarLocX.add(3950);
-        pillarLocX.add(4100);
-        pillarLocX.add(4250);
-        pillarLocX.add(4400);
+        pillarLocX.add(3925);
+        pillarLocX.add(4050);
+        pillarLocX.add(4175);
+        pillarLocX.add(4300);
+        pillarLocX.add(4425);
         pillarLocX.add(4550);
-        pillarLocX.add(4700);
-        pillarLocX.add(4850);
-        pillarLocX.add(5200);
+        pillarLocX.add(4675);
+        pillarLocX.add(4800);
 
 
 
         pillarLocY.add(height - ground1 + 100);
         pillarLocY.add(height - ground1 +100);
         pillarLocY.add(ground1 + 20);
+        pillarLocY.add(100);
+        pillarLocY.add(100);
         pillarLocY.add(100);
         pillarLocY.add(ground1+20);
         pillarLocY.add(ground1-40);
@@ -137,6 +141,8 @@ public class Background {
 
 
         pillarWidth.add(3);
+        pillarWidth.add(5);
+        pillarWidth.add(1);
         pillarWidth.add(5);
         pillarWidth.add(1);
         pillarWidth.add(1);
@@ -155,7 +161,9 @@ public class Background {
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(2);
-        pillarHeight.add(2);
+        pillarHeight.add(1);
+        pillarHeight.add(3);
+        pillarHeight.add(5);
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
