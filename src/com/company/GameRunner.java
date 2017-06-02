@@ -208,6 +208,15 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             toDie = 0;
             }
         }
+        if(background.getPortalsPassed() == 3 && background.speedUp == true) {
+            background.addSpd();
+            background.addSpd();
+            background.speedUp = false;
+        }
+        else if(background.getPortalsPassed() == 8 && background.speedUp == false) {
+            background.subSpd();
+            background.speedUp = true;
+        }
         repaint();
 
     }
@@ -253,6 +262,9 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             background.addSpd();
         }
 
+        if(e.getKeyCode() == 81) {
+            background.subSpd();
+        }
         if (e.getKeyCode() == 68)//d
         {
             background.reset();

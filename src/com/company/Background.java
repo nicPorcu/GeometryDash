@@ -34,14 +34,14 @@ public class Background {
     private int ground2X;
     private int groundSpd;
     private int numPortals;
-    private int portalX;
-    private int portalY;
     private int portalsPassed;
     private ArrayList<JumpRing> rings;
     private ArrayList<Pillar> pillars;
     private ArrayList<Portal> portals;
     private ArrayList<Integer> pillarLocX;
     private ArrayList<Integer> pillarLocY;
+    private ArrayList<Integer> portalLocX;
+    private ArrayList<Integer> portalLocY;
     private ArrayList<Integer> pillarWidth;
     private ArrayList<Integer> pillarHeight;
     private int numPillars;
@@ -74,7 +74,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=50;
+        numSpikes=1;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -95,14 +95,14 @@ public class Background {
         spikeThreshold = 2;
         spikeCounter=1;
         numPillars = 15;
-        numPortals = 2;
-        portalX = 2500;
-        portalY = 300;
+        numPortals = 8;
         spikes=new ArrayList<Spike>();
         pillarLocX = new ArrayList<Integer>();
         pillarLocY = new ArrayList<Integer>();
         pillarWidth = new ArrayList<Integer>();
         pillarHeight = new ArrayList<Integer>();
+        portalLocX = new ArrayList<Integer>();
+        portalLocY = new ArrayList<Integer>();
         pillarLocX.add(650);
         pillarLocX.add(900);
         pillarLocX.add(1450);
@@ -117,9 +117,7 @@ public class Background {
         pillarLocX.add(4425);
         pillarLocX.add(4550);
         pillarLocX.add(4675);
-        pillarLocX.add(4800);
-
-
+        pillarLocX.add(5200);
 
         pillarLocY.add(height - ground1 + 100);
         pillarLocY.add(height - ground1 +100);
@@ -135,10 +133,7 @@ public class Background {
         pillarLocY.add(ground1-40);
         pillarLocY.add(ground1+20);
         pillarLocY.add(ground1-40);
-        pillarLocY.add(ground1-40);
-
-
-
+        pillarLocY.add(ground1+20);
 
         pillarWidth.add(3);
         pillarWidth.add(5);
@@ -156,8 +151,6 @@ public class Background {
         pillarWidth.add(6);
         pillarWidth.add(1);
 
-
-
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(2);
@@ -173,6 +166,25 @@ public class Background {
         pillarHeight.add(1);
         pillarHeight.add(1);
         pillarHeight.add(1);
+
+        portalLocX.add(2500);
+        portalLocX.add(3500);
+        portalLocX.add(5400);
+        portalLocX.add(5500);
+        portalLocX.add(5600);
+        portalLocX.add(5775);
+        portalLocX.add(5900);
+        portalLocX.add(6025);
+
+        portalLocY.add(300);
+        portalLocY.add(100);
+        portalLocY.add(335);
+        portalLocY.add(200);
+        portalLocY.add(285);
+        portalLocY.add(120);
+        portalLocY.add(215);
+        portalLocY.add(100);
+
 
         numAttempts=1;
         attemptStringXPos=100;
@@ -196,11 +208,7 @@ public class Background {
 
         portals = new ArrayList<Portal>();
         for(int i = 0; i<numPortals; i ++){
-            portals.add(new Portal(portalX, portalY));
-            portalX += 1000;
-
-            portalY = ground;
-            portalY = 100;
+            portals.add(new Portal(portalLocX.get(i), portalLocY.get(i)));
 
         }
 
@@ -245,6 +253,9 @@ public class Background {
                 portalsPassed += 1;
             }
         }
+    }
+    public int getPortalsPassed() {
+        return portalsPassed;
     }
 
 
@@ -298,7 +309,6 @@ public class Background {
         groundtX -= groundSpd;
         groundt1X -= groundSpd;
         ground2X -= groundSpd;
-        portalX -= groundSpd;
         if(groundX <= -1*width){
             groundX = width;
         }
@@ -371,13 +381,13 @@ public class Background {
     }
     public void changeSpd(int spd) {backgroundSpd += spd;}
     public void addSpd(){groundSpd += 1; }
+    public void subSpd() {groundSpd -= 1;}
     public int getGroundX(){return groundX;}
     public int getGroundtX(){return groundtX;}
     public int getGroundt1X(){return groundt1X;}
     public int getGround2X(){return ground2X;}
-    public int getPortalY() {return portalY;}
-    public int getPortalX() {return portalX;}
     public ArrayList<Portal> getPortals() {return portals;}
+    public boolean speedUp = true;
     public void reset()
     {
             ground=permGround;
