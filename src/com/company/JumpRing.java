@@ -22,4 +22,5 @@ public class JumpRing { //laucnhes the player into the air
         ringX=initialX;
         ringY=initialY;
     }
+
 }
