@@ -399,7 +399,7 @@ public class Background {
             groundtX = initialGroundtX;
             groundt1X = initialGroundt1X;
             backgroundX = initialBackgroundX;
-            background2X = initialBackground2X;
+            background2X = initialBackground2X;//hi
             spikesPassed = 0;
             backgroundSpd = 1;
             ringsPassed = 0;
