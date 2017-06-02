@@ -243,6 +243,25 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             }
 
         }
+        if (e.getKeyCode() == 65)//a
+        {
+            background.changeSpd(10);
+        }
+
+        if (e.getKeyCode() == 83)//s
+        {
+            background.addSpd();
+        }
+
+        if (e.getKeyCode() == 68)//d
+        {
+            background.reset();
+        }
+
+        if (e.getKeyCode() == 71)//g
+        {
+            background.getBox().reverseGravity();
+        }
 
     }
     //Because this class extends ActionListener, these methods needed to be implemented. They do nothing tho.

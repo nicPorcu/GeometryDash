@@ -150,6 +150,7 @@ public class Box {
         angleThreshold = angt;
     }
     public boolean ifPassedPortal(){return passPortal;}
+    public void reverseGravity() {GRAVITY = -GRAVITY;}
 
     public boolean onGround()
     {
@@ -173,6 +174,7 @@ public class Box {
         angle = 360;
         velocity=0;
         passPortal = false;
+        GRAVITY = Math.abs(GRAVITY);
 
     }
 }

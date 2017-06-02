@@ -74,7 +74,7 @@ public class Background {
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
-        numSpikes=1;
+        numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -369,6 +369,8 @@ public class Background {
     {
         return background2X;
     }
+    public void changeSpd(int spd) {backgroundSpd += spd;}
+    public void addSpd(){groundSpd += 1; }
     public int getGroundX(){return groundX;}
     public int getGroundtX(){return groundtX;}
     public int getGroundt1X(){return groundt1X;}
@@ -389,7 +391,9 @@ public class Background {
             backgroundX = initialBackgroundX;
             background2X = initialBackground2X;
             spikesPassed = 0;
+            backgroundSpd = 1;
             ringsPassed = 0;
+            groundSpd = 3;
             pillarsPassed = 0;
             portalsPassed = 0;
             b.reset();
