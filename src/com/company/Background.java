@@ -14,6 +14,7 @@ public class Background {
     private final int initialGroundX;
     private final int initialGround2X;
     private Box b;
+    private GameScanner gameScanner;
     private ArrayList<Spike> spikes;
     private int numSpikes;
     private int backgroundX;
@@ -69,11 +70,12 @@ public class Background {
         this.height=height;
         backgroundX=0;
         background2X=width;
-        initialBackgroundX=backgroundX;//
+        initialBackgroundX=backgroundX;
         initialBackground2X=background2X;
         ground = 100;
         ground1 = 400;
         b = new Box(ground);
+        gameScanner=new GameScanner();
         numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
@@ -87,7 +89,7 @@ public class Background {
         initialGroundtX = groundtX;
         initialGroundt1X = groundt1X;
         int lastLoc=500;
-        int lastRingLoc = 500;
+        //int lastRingLoc = 500;
         spikesPassed = 0;
         ringsPassed = 0;
         portalsPassed = 0;
@@ -97,120 +99,124 @@ public class Background {
         numPillars = 15;
         numPortals = 8;
         spikes=new ArrayList<Spike>();
-        pillarLocX = new ArrayList<Integer>();
-        pillarLocY = new ArrayList<Integer>();
-        pillarWidth = new ArrayList<Integer>();
-        pillarHeight = new ArrayList<Integer>();
-        portalLocX = new ArrayList<Integer>();
-        portalLocY = new ArrayList<Integer>();
-        pillarLocX.add(650);
-        pillarLocX.add(900);
-        pillarLocX.add(1450);
-        pillarLocX.add(2800);
-        pillarLocX.add(3100);
-        pillarLocX.add(3250);
-        pillarLocX.add(3800);
-        pillarLocX.add(3925);
-        pillarLocX.add(4050);
-        pillarLocX.add(4175);
-        pillarLocX.add(4300);
-        pillarLocX.add(4425);
-        pillarLocX.add(4550);
-        pillarLocX.add(4675);
-        pillarLocX.add(5200);
+//        pillarLocX = new ArrayList<Integer>();
+//        pillarLocY = new ArrayList<Integer>();
+//        pillarWidth = new ArrayList<Integer>();
+//        pillarHeight = new ArrayList<Integer>();
+//        portalLocX = new ArrayList<Integer>();
+//        portalLocY = new ArrayList<Integer>();
+//        pillarLocX.add(650);
+//        pillarLocX.add(900);
+//        pillarLocX.add(1450);
+//        pillarLocX.add(2800);
+//        pillarLocX.add(3100);
+//        pillarLocX.add(3250);
+//        pillarLocX.add(3800);
+//        pillarLocX.add(3925);
+//        pillarLocX.add(4050);
+//        pillarLocX.add(4175);
+//        pillarLocX.add(4300);
+//        pillarLocX.add(4425);
+//        pillarLocX.add(4550);
+//        pillarLocX.add(4675);
+//        pillarLocX.add(5200);
+//
+//        pillarLocY.add(height - ground1 + 100);
+//        pillarLocY.add(height - ground1 +100);
+//        pillarLocY.add(ground1 + 20);
+//        pillarLocY.add(100);
+//        pillarLocY.add(100);
+//        pillarLocY.add(100);
+//        pillarLocY.add(ground1+20);
+//        pillarLocY.add(ground1-40);
+//        pillarLocY.add(ground1-100);
+//        pillarLocY.add(ground1-160);
+//        pillarLocY.add(ground1-100);
+//        pillarLocY.add(ground1-40);
+//        pillarLocY.add(ground1+20);
+//        pillarLocY.add(ground1-40);
+//        pillarLocY.add(ground1+20);
+//
+//        pillarWidth.add(3);
+//        pillarWidth.add(5);
+//        pillarWidth.add(1);
+//        pillarWidth.add(5);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(1);
+//        pillarWidth.add(6);
+//        pillarWidth.add(1);
+//
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(2);
+//        pillarHeight.add(1);
+//        pillarHeight.add(3);
+//        pillarHeight.add(5);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
+//        pillarHeight.add(1);
 
-        pillarLocY.add(height - ground1 + 100);
-        pillarLocY.add(height - ground1 +100);
-        pillarLocY.add(ground1 + 20);
-        pillarLocY.add(100);
-        pillarLocY.add(100);
-        pillarLocY.add(100);
-        pillarLocY.add(ground1+20);
-        pillarLocY.add(ground1-40);
-        pillarLocY.add(ground1-100);
-        pillarLocY.add(ground1-160);
-        pillarLocY.add(ground1-100);
-        pillarLocY.add(ground1-40);
-        pillarLocY.add(ground1+20);
-        pillarLocY.add(ground1-40);
-        pillarLocY.add(ground1+20);
-
-        pillarWidth.add(3);
-        pillarWidth.add(5);
-        pillarWidth.add(1);
-        pillarWidth.add(5);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(1);
-        pillarWidth.add(6);
-        pillarWidth.add(1);
-
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(2);
-        pillarHeight.add(1);
-        pillarHeight.add(3);
-        pillarHeight.add(5);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-        pillarHeight.add(1);
-
-        portalLocX.add(2500);
-        portalLocX.add(3500);
-        portalLocX.add(5400);
-        portalLocX.add(5500);
-        portalLocX.add(5600);
-        portalLocX.add(5775);
-        portalLocX.add(5900);
-        portalLocX.add(6025);
-
-        portalLocY.add(300);
-        portalLocY.add(100);
-        portalLocY.add(335);
-        portalLocY.add(200);
-        portalLocY.add(285);
-        portalLocY.add(120);
-        portalLocY.add(215);
-        portalLocY.add(100);
+//        portalLocX.add(2500);
+//        portalLocX.add(3500);
+//        portalLocX.add(5400);
+//        portalLocX.add(5500);
+//        portalLocX.add(5600);
+//        portalLocX.add(5775);
+//        portalLocX.add(5900);
+//        portalLocX.add(6025);
+//
+//        portalLocY.add(300);
+//        portalLocY.add(100);
+//        portalLocY.add(335);
+//        portalLocY.add(200);
+//        portalLocY.add(285);
+//        portalLocY.add(120);
+//        portalLocY.add(215);
+//        portalLocY.add(100);
 
 
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
         permGround=ground;
+        spikes.add(new Spike(400,100));
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
             lastLoc+= getNextSpikeLoc();
 
         }
+
         rings = new ArrayList<JumpRing>();
-        for(int i = 0; i<numRings; i ++){
-            rings.add(new JumpRing(lastRingLoc, 400));
-            lastRingLoc += 800;
-        }
+        rings.addAll(gameScanner.getRings());
+//        for(JumpRing jring: gameScanner.getRings()){
+//            rings.add(jring);
+//        }
         pillars = new ArrayList<Pillar>();
-        for(int i = 0; i<numPillars; i ++){
-            pillars.add(new Pillar(pillarLocX.get(i), pillarLocY.get(i), pillarWidth.get(i), pillarHeight.get(i)));
-        }
+        pillars.addAll(gameScanner.getPillars());
+//        for(int i = 0; i<numPillars; i ++){
+//            pillars.add(new Pillar(pillarLocX.get(i), pillarLocY.get(i), pillarWidth.get(i), pillarHeight.get(i)));
+//        }
 
         portals = new ArrayList<Portal>();
-        for(int i = 0; i<numPortals; i ++){
-            portals.add(new Portal(portalLocX.get(i), portalLocY.get(i)));
-
-        }
+        portals.addAll(gameScanner.getPortals());
+//        for(int i = 0; i<numPortals; i ++){
+//            portals.add(new Portal(portalLocX.get(i), portalLocY.get(i)));
+//
+//        }
 
 
         levelLength= spikes.get(numSpikes - 1).getX()[2];
