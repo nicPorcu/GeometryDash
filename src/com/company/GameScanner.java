@@ -15,7 +15,7 @@ public class GameScanner {
         private static ArrayList<JumpRing> rings;
         private static ArrayList<Portal> portals;
         private static ArrayList<Pillar> pillars;
-        private static final String FILENAME = "/Users/nicol/IdeaProjects/GeometryDash/Level1.txt";
+        private static final String FILENAME = "Level1.txt";
 
 
         public GameScanner()
