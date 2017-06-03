@@ -1,3 +1,4 @@
+(xPos:yPos)
 spike-30:40
 spike-10:10
 spike-30:30
@@ -11,6 +12,8 @@ portal-5600:285
 portal-5775:120
 portal-5900:215
 portal-6025:100
+
+(xPos:yPos:width:height)
 pillar-650:300:3:1
 pillar-900:300:5:1
 pillar-1450:420:1:2

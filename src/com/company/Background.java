@@ -39,12 +39,12 @@ public class Background {
     private ArrayList<JumpRing> rings;
     private ArrayList<Pillar> pillars;
     private ArrayList<Portal> portals;
-    private ArrayList<Integer> pillarLocX;
-    private ArrayList<Integer> pillarLocY;
-    private ArrayList<Integer> portalLocX;
-    private ArrayList<Integer> portalLocY;
-    private ArrayList<Integer> pillarWidth;
-    private ArrayList<Integer> pillarHeight;
+//    private ArrayList<Integer> pillarLocX;
+//    private ArrayList<Integer> pillarLocY;
+//    private ArrayList<Integer> portalLocX;
+//    private ArrayList<Integer> portalLocY;
+//    private ArrayList<Integer> pillarWidth;
+//    private ArrayList<Integer> pillarHeight;
     private int numPillars;
     private int numRings;
     private int spikeThreshold;
@@ -192,7 +192,6 @@ public class Background {
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
         permGround=ground;
-        spikes.add(new Spike(400,100));
         for (int  i=0; i<numSpikes; i++)
         {
             spikes.add(new Spike(lastLoc, height - ground));
