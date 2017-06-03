@@ -13,18 +13,23 @@ public class GameScanner {
 
         private static ArrayList<Spike> spikes;
         private static ArrayList<JumpRing> rings;
-        private static final String FILENAME = "/Users/apcsaper3/IdeaProjects/GeometryDash/Level1.txt";
+        private static ArrayList<Portal> portals;
+        private static ArrayList<Pillar> pillars;
+        private static final String FILENAME = "/Users/nicol/IdeaProjects/GeometryDash/Level1.txt";
 
 
         public GameScanner()
         {
             spikes = new ArrayList<Spike>();
             rings=new ArrayList<JumpRing>();
-            addSpikes();
+            portals=new ArrayList<Portal>();
+            pillars=new ArrayList<Pillar>();
+            addStuff();
+
         }
 
 
-        public void  addSpikes() {
+        public void  addStuff() {
 
 
             try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
@@ -34,20 +39,36 @@ public class GameScanner {
                 while ((sCurrentLine = br.readLine()) != null) {
                     if(sCurrentLine.indexOf(":")>0)
                     {
-                        if(sCurrentLine.indexOf("spike")>=0) {
-                            String x = sCurrentLine.substring(sCurrentLine.indexOf("spike")+5, sCurrentLine.indexOf(":"));
+                        if(sCurrentLine.contains("spike")) {
+                            String x = sCurrentLine.substring(sCurrentLine.indexOf("-")+1, sCurrentLine.indexOf(":"));
                             String y = sCurrentLine.substring(sCurrentLine.indexOf(":") + 1);
                             spikes.add(new Spike(Integer.parseInt(x), Integer.parseInt(y)));
                         }
-                        if(sCurrentLine.indexOf("ring")>=0)
+                        if(sCurrentLine.contains("ring"))
                         {
-                            String x = sCurrentLine.substring(sCurrentLine.indexOf("ring")+4, sCurrentLine.indexOf(":"));
+                            String x = sCurrentLine.substring(sCurrentLine.indexOf("-")+1, sCurrentLine.indexOf(":"));
                             String y = sCurrentLine.substring(sCurrentLine.indexOf(":") + 1);
                             rings.add(new JumpRing(Integer.parseInt(x), Integer.parseInt(y)));
                         }
+                        if(sCurrentLine.contains("portal"))
+                        {
+                            String x = sCurrentLine.substring(sCurrentLine.indexOf("-")+1, sCurrentLine.indexOf(":"));
+                            String y = sCurrentLine.substring(sCurrentLine.indexOf(":") + 1);
+                            portals.add(new Portal(Integer.parseInt(x), Integer.parseInt(y)));
+                        }
+                        if(sCurrentLine.contains("pillar"))
+                        {
+                            String todo= sCurrentLine.substring(sCurrentLine.indexOf("-")+1);
+                            String x= todo.substring(0, todo.indexOf(":"));
+                            todo=todo.substring(todo.indexOf(":")+1);
+                            String y= todo.substring(0,todo.indexOf(":"));
+                            todo=todo.substring(todo.indexOf(":")+1);
+                            String width= todo.substring(0,todo.indexOf(":"));
+                            todo=todo.substring(todo.indexOf(":")+1);
+                            String height= todo;
+                            pillars.add(new Pillar(Integer.parseInt(x),Integer.parseInt(y),Integer.parseInt(width),Integer.parseInt(height)));
 
-
-
+                        }
 
                     }
 
@@ -72,7 +93,15 @@ public class GameScanner {
             return spikes;
         }
 
-    public static ArrayList<JumpRing> getRings() {
+    public ArrayList<JumpRing> getRings() {
         return rings;
+    }
+
+    public static ArrayList<Portal> getPortals() {
+        return portals;
+    }
+
+    public static ArrayList<Pillar> getPillars() {
+        return pillars;
     }
 }

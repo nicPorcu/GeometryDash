@@ -1,4 +1,7 @@
-spike30:40
-spike30:10
-spike30:30
-ring20:20
+spike-30:40
+spike-10:10
+spike-30:30
+ring-20:20
+portal-100:100
+pillar-10:100:20:23
+pillar-20:10:40:50
