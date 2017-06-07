@@ -205,7 +205,7 @@ public class Background {
 //            rings.add(jring);
 //        }
         pillars = new ArrayList<Pillar>();
-        pillars.addAll(gameScanner.getPillars());
+        pillars.addAll(gameScanner.getPillars());//niju
 //        for(int i = 0; i<numPillars; i ++){
 //            pillars.add(new Pillar(pillarLocX.get(i), pillarLocY.get(i), pillarWidth.get(i), pillarHeight.get(i)));
 //        }
