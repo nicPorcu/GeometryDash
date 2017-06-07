@@ -218,7 +218,7 @@ public class Background {
 //        }
 
 
-        levelLength= 15000;
+        levelLength= 15000; //idk help
         score=0;
 
         bestScore=0;
