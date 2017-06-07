@@ -76,7 +76,7 @@ public class Background {
         ground1 = 400;
         b = new Box(ground);
         gameScanner=new GameScanner();
-        numSpikes=1;
+        numSpikes=50;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
