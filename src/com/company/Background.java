@@ -76,7 +76,7 @@ public class Background {
         ground1 = 400;
         b = new Box(ground);
         gameScanner=new GameScanner();
-        numSpikes=50;
+        numSpikes=1;
         numRings =2;
         backgroundSpd = 1;
         groundSpd= 3;
@@ -96,8 +96,8 @@ public class Background {
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPillars = 15;
         numPortals = 8;
+        numPillars = gameScanner.getPillars().size();
         spikes=new ArrayList<Spike>();
 //        pillarLocX = new ArrayList<Integer>();
 //        pillarLocY = new ArrayList<Integer>();
@@ -218,7 +218,7 @@ public class Background {
 //        }
 
 
-        levelLength= spikes.get(numSpikes - 1).getX()[2];
+        levelLength= 15000;
         score=0;
 
         bestScore=0;
