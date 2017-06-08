@@ -39,12 +39,6 @@ public class Background {
     private ArrayList<JumpRing> rings;
     private ArrayList<Pillar> pillars;
     private ArrayList<Portal> portals;
-//    private ArrayList<Integer> pillarLocX;
-//    private ArrayList<Integer> pillarLocY;
-//    private ArrayList<Integer> portalLocX;
-//    private ArrayList<Integer> portalLocY;
-//    private ArrayList<Integer> pillarWidth;
-//    private ArrayList<Integer> pillarHeight;
     private int numPillars;
     private int numRings;
     private int spikeThreshold;
@@ -58,7 +52,7 @@ public class Background {
 
     //because the getNextSpike and getNextRing classes will cause a crash after passing the last spike or ring, i made
     //a spike and a ring that could not be passed at the very end of the list.
-    private Spike untouchableSpike = new Spike(0, 2000);
+    private Spike untouchableSpike = new Spike(0, 2000, true);
     private JumpRing untouchableRing = new JumpRing (0, 2000);
     private Pillar untouchablePillar = new Pillar( 0, 0, 0, 0);
     private Portal untouchablePortal = new Portal(0,0);
@@ -76,8 +70,8 @@ public class Background {
         ground1 = 400;
         b = new Box(ground);
         gameScanner=new GameScanner();
-        numSpikes=50;
-        numRings =2;
+        numSpikes = gameScanner.getSpikes().size();
+        numRings = gameScanner.getRings().size();
         backgroundSpd = 1;
         groundSpd= 3;
         groundX = 0;
@@ -96,109 +90,22 @@ public class Background {
         pillarsPassed = 0;
         spikeThreshold = 2;
         spikeCounter=1;
-        numPortals = 8;
+        numPortals = gameScanner.getPortals().size();
         numPillars = gameScanner.getPillars().size();
         spikes=new ArrayList<Spike>();
-//        pillarLocX = new ArrayList<Integer>();
-//        pillarLocY = new ArrayList<Integer>();
-//        pillarWidth = new ArrayList<Integer>();
-//        pillarHeight = new ArrayList<Integer>();
-//        portalLocX = new ArrayList<Integer>();
-//        portalLocY = new ArrayList<Integer>();
-//        pillarLocX.add(650);
-//        pillarLocX.add(900);
-//        pillarLocX.add(1450);
-//        pillarLocX.add(2800);
-//        pillarLocX.add(3100);
-//        pillarLocX.add(3250);
-//        pillarLocX.add(3800);
-//        pillarLocX.add(3925);
-//        pillarLocX.add(4050);
-//        pillarLocX.add(4175);
-//        pillarLocX.add(4300);
-//        pillarLocX.add(4425);
-//        pillarLocX.add(4550);
-//        pillarLocX.add(4675);
-//        pillarLocX.add(5200);
-//
-//        pillarLocY.add(height - ground1 + 100);
-//        pillarLocY.add(height - ground1 +100);
-//        pillarLocY.add(ground1 + 20);
-//        pillarLocY.add(100);
-//        pillarLocY.add(100);
-//        pillarLocY.add(100);
-//        pillarLocY.add(ground1+20);
-//        pillarLocY.add(ground1-40);
-//        pillarLocY.add(ground1-100);
-//        pillarLocY.add(ground1-160);
-//        pillarLocY.add(ground1-100);
-//        pillarLocY.add(ground1-40);
-//        pillarLocY.add(ground1+20);
-//        pillarLocY.add(ground1-40);
-//        pillarLocY.add(ground1+20);
-//
-//        pillarWidth.add(3);
-//        pillarWidth.add(5);
-//        pillarWidth.add(1);
-//        pillarWidth.add(5);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(1);
-//        pillarWidth.add(6);
-//        pillarWidth.add(1);
-//
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(2);
-//        pillarHeight.add(1);
-//        pillarHeight.add(3);
-//        pillarHeight.add(5);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-//        pillarHeight.add(1);
-
-//        portalLocX.add(2500);
-//        portalLocX.add(3500);
-//        portalLocX.add(5400);
-//        portalLocX.add(5500);
-//        portalLocX.add(5600);
-//        portalLocX.add(5775);
-//        portalLocX.add(5900);
-//        portalLocX.add(6025);
-//
-//        portalLocY.add(300);
-//        portalLocY.add(100);
-//        portalLocY.add(335);
-//        portalLocY.add(200);
-//        portalLocY.add(285);
-//        portalLocY.add(120);
-//        portalLocY.add(215);
-//        portalLocY.add(100);
-
 
         numAttempts=1;
         attemptStringXPos=100;
         attemptStringInitialXPos=attemptStringXPos;
         permGround=ground;
-        for (int  i=0; i<numSpikes; i++)
-        {
-            spikes.add(new Spike(lastLoc, height - ground));
-            lastLoc+= getNextSpikeLoc();
-
-        }
-
+//        for (int  i=0; i<numSpikes; i++)
+//        {
+//            spikes.add(new Spike(lastLoc, height - ground));
+//            lastLoc+= getNextSpikeLoc();
+//
+//        }
+        spikes = new ArrayList<Spike>();
+        spikes.addAll(gameScanner.getSpikes());
         rings = new ArrayList<JumpRing>();
         rings.addAll(gameScanner.getRings());
 //        for(JumpRing jring: gameScanner.getRings()){
@@ -217,8 +124,7 @@ public class Background {
 //
 //        }
 
-
-        levelLength= 15000; //idk help
+        levelLength= spikes.get(numSpikes -1).getX()[2]; //idk help
         score=0;
 
         bestScore=0;

@@ -16,7 +16,7 @@ public class GameScanner {
         private static ArrayList<Portal> portals;
         private static ArrayList<Pillar> pillars;
         private static final String FILENAME = "Level1.txt";
-
+        //private static final String FILENAME = "Level2.txt";
 
         public GameScanner()
         {
@@ -40,9 +40,17 @@ public class GameScanner {
                     if(sCurrentLine.indexOf(":")>0)
                     {
                         if(sCurrentLine.contains("spike")) {
-                            String x = sCurrentLine.substring(sCurrentLine.indexOf("-")+1, sCurrentLine.indexOf(":"));
-                            String y = sCurrentLine.substring(sCurrentLine.indexOf(":") + 1);
-                            spikes.add(new Spike(Integer.parseInt(x), Integer.parseInt(y)));
+                            String todo= sCurrentLine.substring(sCurrentLine.indexOf("-")+1);
+                            String x= todo.substring(0, todo.indexOf(":"));
+                            todo=todo.substring(todo.indexOf(":")+1);
+                            String y= todo.substring(0,todo.indexOf(":"));
+                            todo=todo.substring(todo.indexOf(":")+1);
+                            String up = todo;
+                            boolean u = true;
+                            if(!up.equals("up")){
+                                u = false;
+                            }
+                            spikes.add(new Spike(Integer.parseInt(x), Integer.parseInt(y), u));
                         }
                         if(sCurrentLine.contains("ring"))
                         {
@@ -97,11 +105,11 @@ public class GameScanner {
         return rings;
     }
 
-    public static ArrayList<Portal> getPortals() {
+    public ArrayList<Portal> getPortals() {
         return portals;
     }
 
-    public static ArrayList<Pillar> getPillars() {
+    public ArrayList<Pillar> getPillars() {
         return pillars;
     }
 }

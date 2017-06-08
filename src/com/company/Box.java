@@ -117,15 +117,25 @@ public class Box {
     //Is used by the ActionPerformed inside the GameRunner
     //Sees if the player has touched the nearest spike to the right
     public boolean isDead(Spike s, Pillar p){
-            if(600-yPos >= s.getY()[1] - 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]){
+        if(s.getUp()) {
+            if (600 - yPos >= s.getY()[1] - 50 && 600 - yPos < s.getY()[1] + 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]) {
                 return true;
             }
-            if(xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 650-yPos >= (int)(s.getY()[0] - (Math.pow(3, 0.5))*(xPos + 50  - s.getX()[0]))){
+            if (xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 650 - yPos >= (int) (s.getY()[0] - (Math.pow(3, 0.5)) * (xPos + 50 - s.getX()[0])) && 600 - yPos < s.getY()[1]+50) {
                 return true;
             }
-            if(600 -yPos >= p.getY() && 600 - yPos < p.getY() + 40*p.getHeight() && xPos + 50 >= p.getX() && xPos + 50 < p.getX() + 40*p.getWidth()){
+        }
+        else{
+            if (600 - yPos <= s.getY()[1] && 600 - yPos > s.getY()[1] - 50 && xPos < s.getX()[1] && xPos + 50 > s.getX()[1]) {
                 return true;
             }
+            if (xPos + 50 > s.getX()[0] && xPos + 50 < s.getX()[1] && 600 - yPos <= (int) (s.getY()[0] + (Math.pow(3, 0.5)) * (xPos + 50 - s.getX()[0])) && 600 - yPos > s.getY()[1]-50) {
+                return true;
+            }
+        }
+        if(600 -yPos >= p.getY() && 600 - yPos < p.getY() + 40*p.getHeight() && xPos + 50 >= p.getX() && xPos + 50 < p.getX() + 40*p.getWidth()){
+            return true;
+        }
 
         return false;
     }

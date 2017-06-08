@@ -1,7 +1,8 @@
 (xPos:yPos)
-spike-30:40
-spike-10:10
-spike-30:30
+spike-800:500:up
+spike-950:100:down
+spike-1000:500:up
+spike-1500:100:down
 ring-500:400
 ring-1400:400
 portal-2500:300

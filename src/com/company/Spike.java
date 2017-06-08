@@ -20,15 +20,22 @@ public class Spike {//kills you. No touchy
     private int[] initialX;
     private int[] y;
     private int[] initialY;
+    private boolean up;
     //as a polygon, an array of points must be specified as the vertices. Trying to make close to equilateral in shape
-    public Spike(int leftX, int leftY){
+    public Spike(int leftX, int leftY, boolean u){
+        up = u;
         this.x = new int[3];
         this.y = new int[3];
         x[0] = leftX;
         x[1] = (leftX+ 20);
         x[2] = (leftX + 40);
         y[0] = leftY;
-        y[1] = leftY - 34;
+        if(up){
+            y[1] = leftY - 34;
+        }
+        else{
+            y[1] = leftY + 34;
+        }
         y[2] = leftY;
         initialX=new int[x.length];
         initialY= new int[y.length];
@@ -55,6 +62,8 @@ public class Spike {//kills you. No touchy
     {
         return y;
     }
+
+    public boolean getUp(){return up;}
 
     public void reset()
     {
