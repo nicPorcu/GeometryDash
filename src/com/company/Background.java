@@ -124,7 +124,7 @@ public class Background {
 //
 //        }
 
-        levelLength= spikes.get(numSpikes -1).getX()[2]; //idk help
+        levelLength= 15000; //idk help
         score=0;
 
         bestScore=0;
