@@ -212,7 +212,10 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
             toDie += 1;
 
             if(toDie == 50)
-            {background.reset();
+            { if (background.getScore() < 10000)
+                {
+                background.reset();
+                }
             toDie = 0;
             }
         }
