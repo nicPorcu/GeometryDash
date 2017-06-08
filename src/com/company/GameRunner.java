@@ -199,6 +199,9 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
 
 
         }
+        else if(background.getScore() >= 10000){
+            background.youWin();
+        }
         else{
 
             toDie += 1;

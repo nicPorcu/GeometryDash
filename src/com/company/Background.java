@@ -339,6 +339,9 @@ public class Background {
         String s="Current Score: \n" + (int)(score/levelLength*100)+"%";
         return s;
     }
+    public double getScore(){
+        return score;
+    }
     public String bestScore(){
         String s = "";
         if(numAttempts == 1){
@@ -369,6 +372,9 @@ public class Background {
     public int attemptStringPosition()
     {
         return attemptStringXPos;
+    }
+    public void youWin(){
+
     }
 
 }
