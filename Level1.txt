@@ -65,7 +65,15 @@ spike-7395:380:down
 spike-7445:380:down
 spike-7495:380:down
 spike-7535:380:down
-spike-7575:380:down
+spike-7595:300:down
+spike-7634:500:up
+spike-7635:300:down
+spike-7675:300:down
+spike-7715:380:down
+spike-7755:380:down
+spike-7795:380:down
+spike-7835:380:down
+spike-7875:380:down
 
 ring-500:400
 ring-1600:350
