@@ -53,9 +53,9 @@ spike-4580:500:up
 spike-4620:500:up
 spike-4660:500:up
 spike-4700:500:up
-spike-6370:180:up
-spike-6410:180:up
-spike-6450:180:up
+spike-6870:180:up
+spike-6910:180:up
+spike-6950:180:up
 
 ring-500:400
 ring-1600:350
@@ -71,12 +71,12 @@ portal-5775:120
 portal-5900:215
 portal-6025:100
 
-
 (xPos:yPos:width:height)
 pillar-650:300:3:1
 pillar-900:300:5:1
 pillar-1450:420:1:2
 pillar-1450:100:1:5
+pillar-2150:220:5:7
 pillar-2800:100:5:1
 pillar-3100:100:1:3
 pillar-3250:100:1:5
@@ -89,9 +89,11 @@ pillar-4425:360:1:1
 pillar-4550:420:1:1
 pillar-4675:320:6:1
 pillar-5200:420:1:1
-pillar-5950:420:1:2
-pillar-6075:340:1:4
-pillar-6200:260:1:6
-pillar-6325:180:4:1
+pillar-6450:420:1:2
+pillar-6575:340:1:4
+pillar-6700:260:1:6
+pillar-6825:180:4:1
 pillar-10000:100:1:10
+
+
 
