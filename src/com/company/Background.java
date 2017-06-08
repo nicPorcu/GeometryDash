@@ -291,8 +291,8 @@ public class Background {
         return background2X;
     }
     public void changeSpd(int spd) {backgroundSpd += spd;}
-    public void addSpd(){groundSpd += 1; }
-    public void subSpd() {groundSpd -= 1;}
+    public void addSpd(){groundSpd =5; }
+    public void subSpd() {groundSpd = 3;}
     public int getGroundX(){return groundX;}
     public int getGroundtX(){return groundtX;}
     public int getGroundt1X(){return groundt1X;}

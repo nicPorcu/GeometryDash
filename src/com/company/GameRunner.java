@@ -211,11 +211,10 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         if(background.getPortalsPassed() == 3 && background.speedUp == true) {
             background.addSpd();
             background.addSpd();
-            background.speedUp = false;
         }
-        else if(background.getPortalsPassed() == 8 && background.speedUp == false) {
+        else if(background.getPortalsPassed() == 7) {
             background.subSpd();
-            background.speedUp = true;
+//            background.speedUp = true;
         }
         repaint();
 
