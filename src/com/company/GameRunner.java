@@ -161,6 +161,7 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         {
             g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 90));
             g.drawString("LEVEL COMPLETE", 0, 300);
+
         }
 
 
