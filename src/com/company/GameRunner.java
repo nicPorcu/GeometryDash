@@ -177,6 +177,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
 
     {
 
+        if (!background.getBox().isDead(background.getNextSpike(), background.getNextPillar()))
+        {
             background.passedSpike();
             background.passedRing();
             background.passedPillar();
@@ -202,6 +204,8 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
                     background.getBox().setAngle(background.getBox().getAngleThreshold());
             }
 
+
+        }
 
         else{
 

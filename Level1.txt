@@ -15,7 +15,7 @@ spike-1700:500:up
 spike-1740:500:up
 spike-1780:500:up
 spike-1820:500:up
-spike-1860:500:up//hi
+spike-1860:500:up
 spike-1900:500:up
 spike-1940:500:up
 spike-1980:500:up
