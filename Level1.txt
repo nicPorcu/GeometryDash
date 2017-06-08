@@ -56,7 +56,16 @@ spike-4700:500:up
 spike-6870:180:up
 spike-6910:180:up
 spike-6950:180:up
-
+spike-7195:380:down
+spike-7235:380:down
+spike-7275:380:down
+spike-7315:380:down
+spike-7355:380:down
+spike-7395:380:down
+spike-7445:380:down
+spike-7495:380:down
+spike-7535:380:down
+spike-7575:380:down
 
 ring-500:400
 ring-1600:350
@@ -95,8 +104,8 @@ pillar-6450:420:1:2
 pillar-6575:340:1:4
 pillar-6700:260:1:6
 pillar-6825:180:4:1
-pillar-7200:100:10:8
-pillar-7600:100:3:6
-pillar-7720:100:5:8
+pillar-7200:100:10:7
+pillar-7600:100:3:5
+pillar-7720:100:5:7
 pillar-10200:100:1:10
 
