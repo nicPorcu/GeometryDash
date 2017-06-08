@@ -54,8 +54,6 @@ spike-4660:500:up
 spike-4700:500:up
 
 
-
-
 ring-500:400
 ring-1600:350
 ring-1800:350
@@ -63,17 +61,13 @@ ring-2000:350
 
 portal-2500:350
 portal-3500:100
-portal-5400:335
-portal-5500:200
-portal-5600:285
-portal-5775:120
-portal-5900:215
-portal-6025:100
+
 
 (xPos:yPos:width:height)
 pillar-650:300:3:1
 pillar-900:300:5:1
 pillar-1450:420:1:2
+pillar-1450:100:1:5
 pillar-2800:100:5:1
 pillar-3100:100:1:3
 pillar-3250:100:1:5
