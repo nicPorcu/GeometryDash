@@ -126,7 +126,6 @@ public class Background {
 
         levelLength= 10000; //idk help
         score=0;
-
         bestScore=0;
 
     }
@@ -372,9 +371,6 @@ public class Background {
     public int attemptStringPosition()
     {
         return attemptStringXPos;
-    }
-    public void youWin(){
-
     }
 
 }

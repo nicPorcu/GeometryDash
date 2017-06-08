@@ -157,6 +157,12 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
         g.drawString(background.currentScore(), 50, 40);
         g.drawString(background.bestScore(), 50, 65);
 
+        if (background.getScore() >= 10000)
+        {
+            g.setFont(new Font("Rockwell Extra Bold", Font.BOLD, 90));
+            g.drawString("LEVEL COMPLETE", 0, 300);
+        }
+
 
 
     }
@@ -199,9 +205,7 @@ public class  GameRunner extends JComponent implements ActionListener, KeyListen
 
 
         }
-        else if(background.getScore() >= 10000){
-            background.youWin();
-        }
+
         else{
 
             toDie += 1;
