@@ -116,6 +116,22 @@ spike-8260:500:up
 spike-8300:500:up
 spike-8410:500:up
 spike-8890:340:up
+spike-9400:500:up
+spike-9440:500:up
+spike-9480:500:up
+spike-9520:500:up
+spike-9560:500:up
+spike-9600:500:up
+spike-9640:500:up
+spike-9680:500:up
+spike-9720:500:up
+spike-9760:500:up
+spike-9800:500:up
+spike-9840:500:up
+spike-9880:500:up
+spike-9920:500:up
+spike-9960:500:up
+
 
 ring-500:400
 ring-1600:350
